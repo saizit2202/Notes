@@ -1,0 +1,66 @@
+<div><br></div>
+<div>/usr/local/var/postgresql@9.5</div>
+<div><br></div>
+<div><br></div>
+<div>Log: </div>
+<div>/usr/local/var/log/</div>
+<div><br></div>
+<div>pg_dump -U tad -W -F t elmfin > /home/qualian/elmfindb.backup</div>
+<div><br></div>
+<div><br></div>
+<div>https://www.howtoforge.com/tutorial/postgresql-replication-on-ubuntu-15-04/<br></div>
+<div><br></div>
+<div>SELECT column_name FROM INFORMATION_SCHEMA. <b>COLUMNS</b> WHERE TABLE_NAME = 'some_table’;s</div>
+<div><br></div>
+<div><br></div>
+<div>java.util.UUID.randomUUID().toString().replace("-", "").toUpperCase() </div>
+<div><br></div>
+<div><br></div>
+<div>pg_ctl -D /usr/local/var/postgres start</div>
+<div><br></div>
+<div>pg_ctl -D /usr/local/var/postgres stop</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>brew services start postgresql</div>
+<div><br></div>
+<div><br></div>
+<div>--drop function efin_updateuniquecode()</div>
+<div>CREATE OR REPLACE FUNCTION public.efin_updateuniquecode()</div>
+<div>RETURNS void</div>
+<div>    LANGUAGE 'plpgsql'</div>
+<div>    COST 100</div>
+<div>    VOLATILE </div>
+<div>AS $BODY$</div>
+<div> DECLARE </div>
+<div>v_uniquecode VARCHAR(100); --OBTG:VARCHAR2--</div>
+<div>Cur_fact RECORD;</div>
+<div>BEGIN</div>
+<div>   for cur_fact in (select record_id2, fact_acct_id from fact_acct where em_efin_uniquecode is null and record_id2 is not null)</div>
+<div>   loop</div>
+<div>   </div>
+<div>   select comb.em_efin_uniquecode into v_uniquecode from c_invoiceline line join </div>
+<div>   c_validcombination comb on comb.c_validcombination_id = line.em_efin_c_validcombination_id</div>
+<div>   where line.c_invoiceline_id = cur_fact.record_id2;</div>
+<div>      </div>
+<div>    update fact_acct set em_efin_uniquecode = v_uniquecode where fact_acct_id = cur_fact.fact_acct_id;</div>
+<div> </div>
+<div>   end loop;</div>
+<div>END ; </div>
+<div>$BODY$;</div>
+<div><br></div>
+<div>--select efin_updateuniquecode()</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Update with join</div>
+<div><br></div>
+<div><br></div>
+<div>update efin_budget_manencum header   set app_amt= (lines.sumamount)</div>
+<div>from  (select efin_budget_manencum_id,sum(app_amt) as sumamount from efin_budget_manencumlines group by efin_budget_manencum_id) as lines </div>
+<div>where  lines.efin_budget_manencum_id = </div>
+<div>header.efin_budget_manencum_id</div>
+<div>and  header.documentno in ('400005312')</div>
+<div><br></div>
+<div><br></div>
+<div> pg_restore -h localhost -U tad -d DB_NAME  /Users/qualian/Downloads/09AprilP</div>

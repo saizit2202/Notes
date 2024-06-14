@@ -1,0 +1,16 @@
+
+sftp u39501878-elm@home149126437.1and1-data.host
+
+USER="u39501878-elm"
+PASS="El@Q23ftp#n"
+
+
+
+Jaysar
+
+ssh -L 5932:localhost:5432 root@143.110.190.225
+
+qualianOB123a
+
+
+

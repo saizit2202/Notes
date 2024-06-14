@@ -1,0 +1,58 @@
+
+Singleton Pattern: 
+
+To make the class as singleton:
+
+	1.	Make constructor as private. This will prevent the multiple object creation.
+	2.	Create static method where it will return the object of the class
+	3.	Only create if the object is null.
+	4.	To Make thread safe make static method as Synchronized or create the object inside the Synchronized block
+	5.	During the serialization and deserialisation of this class, it may be leads to multiple object creation. To fix this implement serialisable interface and create method called readResolver and return this created object
+	6.	Cloning of this class may leads to multiple object creation, so implement the cloneable interface and override the clone method and return CloneNotSupportedException
+
+Two ways of initialisation:
+
+	▪	Lazy initialisation - check null and then create the object
+	▪	Eager initialisation - in the static variable itself object will be created
+
+package com.sathish.designpatterns;
+
+import java.io.Serializable;
+
+public class Singleton implements Serializable , Cloneable{
+
+private static final long serialVersionUID = 1L;
+public static Singleton instance;
+
+// Constructor should be private
+// This will prevent the object creation of this class
+private Singleton() {
+
+}
+
+public static Singleton getInstance() {
+
+if(instance==null) {
+instance = new Singleton();
+}
+return instance; 
+
+}
+
+public Object readResolver() {
+return instance;
+}
+
+
+@Override
+protected Object clone() throws CloneNotSupportedException {
+return new CloneNotSupportedException();
+}
+
+
+
+}
+
+
+
+

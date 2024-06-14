@@ -1,0 +1,15 @@
+ck_8bf9e983ca7d671295d0bc40f5e8d3076af34293
+?
+cs_4b519ed4e67dbc232fdd78aa508c958b1394a0e3
+
+
+
+https://yourdomain.com/wp-json/wc/v2/products/?consumer_key=ck_8bf9e983ca7d671295d0bc40f5e8d3076af34293&consumer_secret=cs_4b519ed4e67dbc232fdd78aa508c958b1394a0e3
+
+
+curl http://192.168.1.31/wordpress/index.php/wc-api/v3/orders?consumer_key=ck_065b4916fae0943ef1343ded8ce9540a41b1f148&consumer_secret=cs_5088ab90206ec0850d280ce3a9c271b1950cd27b
+ 
+ 
+ 
+ 
+curl http://192.168.1.31/wordpress/index.php/wc-api/v3/orders?oauth_consumer_key=ck_065b4916fae0943ef1343ded8ce9540a41b1f148&oauth_timestamp=1612954804&oauth_signature_method=HMAC-SHA1

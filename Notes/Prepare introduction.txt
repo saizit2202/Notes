@@ -1,0 +1,8 @@
+	1.	Prepare about projects
+	2.	Prepare about already asked question
+	3.	Git
+	4.	Enyo js
+	5.	Postgres core tables
+	6.	Indexed db
+	7.	Discounts
+	8.	 

@@ -1,0 +1,27 @@
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><b><h1>openfortivpn</h1></b></div>
+<div>openfortivpn is a client for PPP+SSL VPN tunnel services.It spawns a pppd process and operates the communication between the gateway and this process.</div>
+<div>It is compatible with Fortinet VPNs.</div>
+<div><br></div>
+<div><b><h2><br></h2></b></div>
+<div><b><h2>Examples</h2></b></div>
+<ul>
+<li>Simply connect to a VPN:openfortivpn vpn-gateway:8443 --username=foo</li>
+<li><br></li>
+<li>Connect to a VPN using an authentication realm:openfortivpn vpn-gateway:8443 --username=foo --realm=bar</li>
+<li><br></li>
+<li>Don't set IP routes and don't add VPN nameservers to /etc/resolv.conf:openfortivpn vpn-gateway:8443 -u foo -p bar --no-routes --no-dns</li>
+<li><br></li>
+<li>Using a config file:openfortivpn -c /etc/openfortivpn/my-config</li>
+<li>With /etc/openfortivpn/my-config containing:host = vpn-gateway</li>
+<li>port = 8443</li>
+<li>username = foo</li>
+<li>password = bar</li>
+<li>set-routes = 0</li>
+<li>set-dns = 0</li>
+<li># X509 certificate sha256 sum, trust only this one!</li>
+<li>trusted-cert = e46d4aff08ba6914e64daa85bc6112a422fa7ce16631bff0b592a28556f993db</li>
+</ul>

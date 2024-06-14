@@ -1,0 +1,8 @@
+Angular
+
+
+npm install -g @angular/cli
+
+ng serve
+
+ng generate component helloworld

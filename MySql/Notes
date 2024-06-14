@@ -1,0 +1,20 @@
+Mysql:
+
+
+User: root
+password: qualian
+
+
+User: qualian
+password: qualian
+
+
+create database signupform;
+
+SHOW TABLES;
+
+
+ CREATE TABLE userdetails (name VARCHAR(20), age numeric,
+       email VARCHAR(200), sex CHAR(1), dob DATE, username varchar(20), password varchar(20));
+       
+       select * from userdetails

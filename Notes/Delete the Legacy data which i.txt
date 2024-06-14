@@ -1,0 +1,7 @@
+	1.	Delete Po receipt which is uploaded as Site receiving
+	2.	Upload the Legacy and 
+	3.	Find the script for uploading the Po as single line
+	4.	 
+
+
+7034187

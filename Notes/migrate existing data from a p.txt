@@ -1,0 +1,49 @@
+https://www.postgresql.org/docs/9.5/static/upgrading.html
+
+To migrate existing data from a previous minor version (9.0-9.4) of PostgreSQL, see:
+https://www.postgresql.org/docs/9.5/static/pgupgrade.html
+
+You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
+Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
+
+postgresql@9.5 is keg-only, which means it was not symlinked into /usr/local,
+because this is an alternate version of another formula.
+
+If you need to have postgresql@9.5 first in your PATH run:
+echo 'export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"' >> ~/.bash_profile
+
+For compilers to find postgresql@9.5 you may need to set:
+export LDFLAGS="-L/usr/local/opt/postgresql@9.5/lib"
+export CPPFLAGS="-I/usr/local/opt/postgresql@9.5/include"
+
+
+To have launchd start postgresql@9.5 now and restart at login:
+brew services start postgresql@9.5
+Or, if you don't want/need a background service you can just run:
+pg_ctl -D /usr/local/var/postgresql@9.5 start
+==> Summary
+? /usr/local/Cellar/postgresql@9.5/9.5.14: 3
+
+
+
+Skype:
+sudo /Applications/Skype.app/Contents/MacOS/Skype /secondary
+
+
+
+
+-server -Djava.awt.headless=true -Xms384M -Xmx1536M -XX:MaxPermSize=256M 
+
+
+ant -f modules/org.openbravo.replication.symmetricds/build.xml uninstall.symmetric.ds.triggers.from.ob.tables
+
+
+ant -f modules/org.openbravo.replication.symmetricds/build.xml update.symmetric.ds.configuration
+
+
+ant smartbuild -Dlocal=no -Dtr=no -Dforce=yes -DforceRefData=true
+
+
+
+
+/usr/local/Cellar/postgresql@9.5/9.5.22_2/bin/pg_ctl -D /usr/local/var/postgresql@9.5 -l /usr/local/var/postgresql@9.5/server.log start

@@ -1,0 +1,15 @@
+Window tabs - table name
+Tabs fields - field column name - info (help/comment)
+
+
+
+(Module )
+Total windows 
+Total tabs
+Total fields (visible)
+
+1 field - 3 minute
+
+
+Reports (skip it)
+

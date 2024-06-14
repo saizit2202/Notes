@@ -1,0 +1,76 @@
+<ol>
+<li> </li>
+</ol>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>select * from c_orderline order by created desc limit 10</div>
+<div><br></div>
+<div>linenetamt  - linenetamt</div>
+<div>priceactual - negotiatedprice</div>
+<div>em_escm_po_change_factor - factor</div>
+<div>em_escm_po_change_type - changetype</div>
+<div>em_escm_po_change_value - changevalue</div>
+<div>em_escm_line_total_updated  - grosslineamt</div>
+<div><br></div>
+<div>2414AAF9BA874535BD1E54B80859D9A0 - decrease</div>
+<div>BCFA9959EDBA4001903337EE7042C849 - increase</div>
+<div>905F8A912AEF43A4A02CF3E783A23B1F - amount</div>
+<div>2DF9321337D24D62BEB4E292F5D7C680  - percentage</div>
+<div><br></div>
+<div><br></div>
+<div>CDF54B55DF7F441E89C03068004E0662 Ñ percentage</div>
+<div>370A8542213743A6A27CBB760EE3EB34.  - amount</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>select * from c_order where c_order_id ='0E8F9B8DEBA64990AA4D3A72894A0A73'</div>
+<div><br></div>
+<div>CDF54B55DF7F441E89C03068004E0662</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<ol>
+<li>Bring description in notes</li>
+<li>Contract category</li>
+<li>Computer no</li>
+</ol>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Iban upload</div>
+<div><br></div>
+<div>1068</div>
+<div><br></div>
+<div>29 rows bank is null</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Total - 2476</div>
+<div>1438 distinct </div>
+<div><br></div>
+<div><br></div>
+<div>2413</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>1.parent line. Group by 	</div>
+<div><br></div>
+<div>partno, part desc</div>
+<div><br></div>
+<div>Line no, computer</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>

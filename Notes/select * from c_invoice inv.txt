@@ -1,0 +1,699 @@
+<div>join efin_budget_manencum header on header.efin_budget_manencum_id = inv.em_efin_manualencumbrance_id</div>
+<div>join efin_budget_manencumlines  lines on lines.efin_budget_manencum_Id = header.efin_budget_manencum_id</div>
+<div>join efin_manualencuminvoice encuminv on encuminv.efin_budget_manencumlines_id = lines.efin_budget_manencumlines_id</div>
+<div>where c_doctype_id ='A4AB9B51B6514820903CE6C3B50418AE' and encuminv.ispaid ='N'</div>
+<div><br></div>
+<div><br></div>
+<div>ÑÑÑÑÑÑÑÑÑÑÑÑÑÑ</div>
+<div><br></div>
+<div><br></div>
+<div>update c_invoice  set posted ='Y' where c_invoice_id in (select  invoice.c_invoice_id from fin_finacc_transaction transaction</div>
+<div>	join fin_payment payment on payment.fin_payment_id = transaction.fin_payment_id</div>
+<div>	join c_invoice invoice on invoice.c_invoice_id = payment.em_efin_invoice_id</div>
+<div>	where invoice.posted<>transaction.posted and transaction.posted!='EFIN_PP');</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>alter table efin_manualencuminvoice disable trigger all;</div>
+<div><br></div>
+<div>update efin_manualencuminvoice set ispaid ='Y' where efin_manualencuminvoice_id in (</div>
+<div>select efin_manualencuminvoice_id from efin_manualencuminvoice encumref</div>
+<div>join efin_budget_manencumlines lines on lines.efin_budget_manencumlines_id = encumref.efin_budget_manencumlines_id</div>
+<div>join efin_budget_manencum header on header.efin_budget_manencum_id = lines.efin_budget_manencum_id</div>
+<div>join c_campaign budget on budget.c_campaign_id = header.c_campaign_id</div>
+<div>join c_invoice inv on inv.c_invoice_id = encumref.c_invoice_id</div>
+<div>where inv.posted <> encumref.ispaid and budget.em_efin_budgettype='F' </div>
+<div>and c_doctype_id not in ('757A043DA459420A9CB5A5216189BA1D' ,'A4AB9B51B6514820903CE6C3B50418AE')</div>
+<div>);</div>
+<div><br></div>
+<div>alter table efin_manualencuminvoice enable trigger all;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>-- View: public.efin_budinqinvactual_v</div>
+<div><br></div>
+<div>-- DROP VIEW public.efin_budinqinvactual_v;</div>
+<div><br></div>
+<div>CREATE OR REPLACE VIEW public.efin_budinqinvactual_v AS</div>
+<div> SELECT main.efin_budinqinvactual_v_id,</div>
+<div>    main.efin_manualencuminvoice_id,</div>
+<div>    main.efin_budget_manencumlines_id,</div>
+<div>    main.ad_client_id,</div>
+<div>    main.ad_org_id,</div>
+<div>    main.isactive,</div>
+<div>    main.created,</div>
+<div>    main.createdby,</div>
+<div>    main.updated,</div>
+<div>    main.updatedby,</div>
+<div>    main.c_invoice_id,</div>
+<div>    main.c_invoiceline_id,</div>
+<div>    main.dateacct,</div>
+<div>    main.dateinvoiced,</div>
+<div>    main.description,</div>
+<div>    main.documentno,</div>
+<div>    main.fin_payment_id,</div>
+<div>    main.invamount,</div>
+<div>    main.ispaid,</div>
+<div>    main.c_validcombination_id,</div>
+<div>    main.efin_budgetlines_id,</div>
+<div>    main.efin_budgetint_id,</div>
+<div>    main.gl_journal_id,</div>
+<div>    main.gl_journalline_id,</div>
+<div>    main.c_doctype_id,</div>
+<div>	main.c_elementvalue_id </div>
+<div>   FROM ( SELECT encuminv.efin_manualencuminvoice_id AS efin_budinqinvactual_v_id,</div>
+<div>            encuminv.efin_manualencuminvoice_id,</div>
+<div>            encuminv.efin_budget_manencumlines_id,</div>
+<div>            encuminv.ad_client_id,</div>
+<div>            encuminv.ad_org_id,</div>
+<div>            encuminv.isactive,</div>
+<div>            encuminv.created,</div>
+<div>            encuminv.createdby,</div>
+<div>            encuminv.updated,</div>
+<div>            encuminv.updatedby,</div>
+<div>            encuminv.c_invoice_id,</div>
+<div>            encuminv.c_invoiceline_id,</div>
+<div>            encuminv.dateacct,</div>
+<div>            encuminv.dateinvoiced,</div>
+<div>            encuminv.description,</div>
+<div>            encuminv.documentno,</div>
+<div>            encuminv.fin_payment_id,</div>
+<div>            encuminv.invamount,</div>
+<div>            encuminv.ispaid,</div>
+<div>            encumln.c_validcombination_id,</div>
+<div>            encumln.efin_budgetlines_id,</div>
+<div>            encumhd.efin_budgetint_id,</div>
+<div>            NULL::character varying AS gl_journal_id,</div>
+<div>            NULL::character varying AS gl_journalline_id,</div>
+<div>            inv.c_doctypetarget_id AS c_doctype_id,</div>
+<div>		    com.account_id as c_elementvalue_id</div>
+<div>           FROM efin_manualencuminvoice encuminv</div>
+<div>             JOIN efin_budget_manencumlines encumln ON encuminv.efin_budget_manencumlines_id::text = encumln.efin_budget_manencumlines_id::text</div>
+<div>             JOIN efin_budget_manencum encumhd ON encumln.efin_budget_manencum_id::text = encumhd.efin_budget_manencum_id::text</div>
+<div>             JOIN c_invoice inv ON encuminv.c_invoice_id::text = inv.c_invoice_id::text</div>
+<div>		     join c_validcombination com on com.c_validcombination_id = encumln.c_validcombination_id</div>
+<div>          WHERE encumhd.docstatus::text = 'CO'::text AND encuminv.ispaid = 'Y'::bpchar AND encumln.c_validcombination_id IS NOT NULL</div>
+<div>        UNION ALL</div>
+<div>         SELECT actualtran.efin_actualtransaction_id AS efin_budinqinvactual_v_id,</div>
+<div>            NULL::character varying AS efin_manualencuminvoice_id,</div>
+<div>            NULL::character varying AS efin_budget_manencumlines_id,</div>
+<div>            actualtran.ad_client_id,</div>
+<div>            actualtran.ad_org_id,</div>
+<div>            actualtran.isactive,</div>
+<div>            actualtran.created,</div>
+<div>            actualtran.createdby,</div>
+<div>            actualtran.updated,</div>
+<div>            actualtran.updatedby,</div>
+<div>            actualtran.c_invoice_id,</div>
+<div>            actualtran.c_invoiceline_id,</div>
+<div>            actualtran.dateacct,</div>
+<div>            actualtran.dateinvoiced,</div>
+<div>            actualtran.description,</div>
+<div>            actualtran.documentno,</div>
+<div>            NULL::character varying AS fin_payment_id,</div>
+<div>            actualtran.amount,</div>
+<div>            actualtran.posted,</div>
+<div>            actualtran.c_validcombination_id,</div>
+<div>            NULL::character varying AS efin_budgetlines_id,</div>
+<div>            actualtran.efin_budgetint_id,</div>
+<div>            actualtran.gl_journal_id,</div>
+<div>            actualtran.gl_journalline_id,</div>
+<div>            COALESCE(gl.c_doctype_id, inv.c_doctypetarget_id) AS c_doctype_id,</div>
+<div>		    com.account_id as c_elementvalue_id</div>
+<div>           FROM efin_actualtransaction actualtran</div>
+<div>		     join c_validcombination com on com.c_validcombination_id = actualtran.c_validcombination_id</div>
+<div>             LEFT JOIN gl_journal gl ON gl.gl_journal_id::text = actualtran.gl_journal_id::text</div>
+<div>             LEFT JOIN c_invoice inv ON inv.c_invoice_id::text = actualtran.c_invoice_id::text</div>
+<div>          WHERE actualtran.posted = 'Y'::bpchar AND actualtran.c_validcombination_id IS NOT NULL) main;</div>
+<div><br></div>
+<div>ALTER TABLE public.efin_budinqinvactual_v</div>
+<div>    OWNER TO tad;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>-- FUNCTION: public.efin_budenq_updateactprocess()</div>
+<div><br></div>
+<div>-- DROP FUNCTION public.efin_budenq_updateactprocess();</div>
+<div><br></div>
+<div>CREATE OR REPLACE FUNCTION public.efin_budenq_updateactprocessforoneaccount(p_accountid character varying)</div>
+<div>  </div>
+<div>    RETURNS void</div>
+<div>    LANGUAGE 'plpgsql'</div>
+<div>    COST 100</div>
+<div>    VOLATILE </div>
+<div>AS $BODY$</div>
+<div> DECLARE </div>
+<div>/*************************************************************************</div>
+<div>* All Rights Reserved.</div>
+<div>* Contributor(s): Poongodi 02-01-2018</div>
+<div>************************************************************************/</div>
+<div>v_client_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_ResultStr VARCHAR(2000):=''; --OBTG:VARCHAR2--</div>
+<div>v_message VARCHAR(2000):='';--OBTG:VARCHAR2--</div>
+<div>v_controlunit VARCHAR(32):=''; --OBTG:VARCHAR2--</div>
+<div>v_uniquecode VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_parentid VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_amount NUMERIC;</div>
+<div>v_deptfund character(1);</div>
+<div>v_isvirtual character(1);</div>
+<div><br></div>
+<div>v_isuniquecodepresent  NUMERIC;</div>
+<div>v_parentacctcomId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_budgetInqId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_salesregion_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecodename VARCHAR(200); --OBTG:VARCHAR2--</div>
+<div>v_elementvalue_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_project_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_campaign_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_bpartner_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_activity_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user1_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user2_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_org_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecode_no VARCHAR(200); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>v_budget_int_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>--TYPE RECORD IS REFCURSOR;</div>
+<div>Cur_ChildList RECORD;</div>
+<div>Cur_ParentList RECORD;</div>
+<div>Cur_List RECORD;</div>
+<div>BEGIN</div>
+<div> </div>
+<div>--get client id </div>
+<div><br></div>
+<div>      --Disable all trigger using in budget enq line</div>
+<div>  ALTER TABLE efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>  ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>  ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>    -- update spentamt=0 if departmentfunds='N' and isvirtual account='Y' in budget enquiry</div>
+<div>    update efin_budgetinquiry set Spent_Amt = 0 where isvirtual='Y' and c_elementvalue_id=p_accountid ; </div>
+<div>    </div>
+<div>    </div>
+<div>    -- check uniquecode is present , if not present then insert it</div>
+<div>  for Cur_ChildList in (select c_validcombination_id,efin_budgetint_id from efin_budinqinvactual_v</div>
+<div>  where  efin_budgetint_id is not null and c_elementvalue_id = p_accountid group by </div>
+<div>      c_validcombination_id,efin_budgetint_id)</div>
+<div>  loop</div>
+<div>         v_isuniquecodepresent:=0;</div>
+<div>         v_uniquecode:=Cur_ChildList.c_validcombination_id ;</div>
+<div>         v_budget_int_id:=Cur_ChildList.efin_budgetint_id;</div>
+<div>         </div>
+<div>         select em_efin_isdeptfund, ad_org_id, ad_client_id, em_efin_uniquecode, em_efin_uniquecodename,c_salesregion_id,</div>
+<div>                account_id,c_project_id,c_campaign_id,c_bpartner_id,c_activity_id,user1_id,user2_id</div>
+<div>           into v_deptfund,v_org_id,v_client_id,v_uniquecode_no,v_uniquecodename,v_salesregion_id,</div>
+<div>                v_elementvalue_id,v_project_id,v_campaign_id,v_bpartner_id,v_activity_id,v_user1_id,v_user2_id   </div>
+<div>                from c_validcombination where c_validcombination_id =v_uniquecode;</div>
+<div>         select count(efin_budgetinquiry_id)  into v_isuniquecodepresent from  efin_budgetinquiry  where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>         if(v_isuniquecodepresent = 0) then</div>
+<div>           if(v_deptfund ='N') then</div>
+<div>             select efin_getparentAcctcom(v_uniquecode,v_client_id) into v_parentacctcomId from dual;</div>
+<div>              if(v_parentacctcomId is not null ) then</div>
+<div>              select  efin_budgetinquiry_id into v_budgetInqId from efin_budgetinquiry where  efin_budgetint_id  = v_budget_int_id and </div>
+<div>               c_validcombination_id = v_parentacctcomId;</div>
+<div>                if(v_budgetInqId is not null ) then</div>
+<div>                  INSERT INTO public.efin_budgetinquiry(</div>
+<div>                     efin_budgetinquiry_id, ad_client_id, ad_org_id, isactive, created, </div>
+<div>                     createdby, updated, updatedby, org_amt, obinc_amt, </div>
+<div>                     obdec_amt, rev_amount, revinc_amt, revdec_amt, disinc_amt, disdec_amt, </div>
+<div>                     current_budget, encumbrance, spent_amt, funds_available, description, uniquecode, </div>
+<div>                     uniquecodename, c_validcombination_id, c_salesregion_id, c_elementvalue_id, </div>
+<div>                     c_project_id, c_campaign_id, c_bpartner_id, c_activity_id, user1_id, user2_id, </div>
+<div>                     efin_budgetint_id, parent_id, depinc_amt, depdec_amt, isvirtual)</div>
+<div>                        VALUES (get_uuid(), v_client_id, v_org_id, 'Y', TO_DATE(NOW()),</div>
+<div>                                '100' , TO_DATE(NOW()) ,'100', 0, 0,</div>
+<div>                                0, 0, 0, 0, 0, 0,</div>
+<div>                                0, 0, 0, 0, '', v_uniquecode_no,</div>
+<div>                                v_uniquecodename, v_uniquecode, v_salesregion_id, v_elementvalue_id,</div>
+<div>                                v_project_id, v_campaign_id, v_bpartner_id, v_activity_id, v_user1_id, v_user2_id,</div>
+<div>                                v_budget_int_id, v_budgetInqId, 0, 0,'Y');</div>
+<div>                    end if;</div>
+<div>                   end if;        </div>
+<div>                end if;</div>
+<div>             end if;   </div>
+<div>           end loop ;     </div>
+<div>    </div>
+<div>  -- Department level update</div>
+<div>  for Cur_ChildList in (select sum(invamount),c_validcombination_id,efin_budgetint_id from efin_budinqinvactual_v</div>
+<div>  where  efin_budgetint_id is not null and c_elementvalue_id = p_accountid group by </div>
+<div>      c_validcombination_id,efin_budgetint_id)</div>
+<div>  loop</div>
+<div>  v_amount = Cur_ChildList.sum;</div>
+<div>    v_isvirtual:='N';</div>
+<div>        v_uniquecode = Cur_ChildList.c_validcombination_id;</div>
+<div>       select em_efin_isdeptfund into v_deptfund from c_validcombination where c_validcombination_id = v_uniquecode;</div>
+<div>       if(v_deptfund = 'Y') then</div>
+<div>          update efin_budgetinquiry set Spent_Amt = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>       end if;</div>
+<div>       if(v_deptfund = 'N') then</div>
+<div>          select isvirtual into v_isvirtual from efin_budgetinquiry where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ;</div>
+<div>         if(v_isvirtual='Y') then</div>
+<div>          update efin_budgetinquiry set Spent_Amt = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>          end if;</div>
+<div>        end if;</div>
+<div>      end loop ;</div>
+<div><br></div>
+<div>       -- 999 level update</div>
+<div>        for Cur_ParentList in ( select coalesce((sum(vi.invamount)),0) as sum ,inq.efin_budgetinquiry_id   from  efin_budinqinvactual_v vi </div>
+<div>        left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id and vi.c_elementvalue_id = inq.c_elementvalue_id</div>
+<div>        and  inq.c_validcombination_id  = (select efin_getparentacctcom(vi.c_validcombination_id ,vi.ad_client_id) )</div>
+<div>        where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null and  vi.c_elementvalue_id = p_accountid</div>
+<div>        GROUP BY inq.efin_budgetinquiry_id </div>
+<div>        )</div>
+<div>  loop </div>
+<div>    update efin_budgetinquiry set Spent_Amt = Cur_ParentList.sum where efin_budgetinquiry.efin_budgetinquiry_id = Cur_ParentList.efin_budgetinquiry_id;</div>
+<div>    </div>
+<div>  end loop;</div>
+<div><br></div>
+<div>  --990 level</div>
+<div>     for Cur_List in (select coalesce((sum(vi.invamount)),0)  as sum ,inq.efin_budgetinquiry_id from efin_budinqinvactual_v vi </div>
+<div>      left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id and vi.c_elementvalue_id = inq.c_elementvalue_id </div>
+<div>      and  inq.efin_budgetinquiry_id  =( select parent_id from efin_budgetinquiry en where en.c_validcombination_id = (</div>
+<div>      select efin_getparentacctcom(vi.c_validcombination_id,vi.ad_client_id))</div>
+<div>                                               and  en.efin_budgetint_id=vi.efin_budgetint_id)</div>
+<div>                                               where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null and vi.c_elementvalue_id = p_accountid</div>
+<div>      GROUP BY inq.efin_budgetinquiry_id )</div>
+<div>  loop</div>
+<div>  update efin_budgetinquiry set Spent_Amt = Cur_List.sum where efin_budgetinquiry_id = Cur_List.efin_budgetinquiry_id;</div>
+<div>  end loop;</div>
+<div>  </div>
+<div>   --Enable all trigger using in budget enq line</div>
+<div>  ALTER TABLE efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>  ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>  ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>     </div>
+<div> </div>
+<div>  RETURN;</div>
+<div>END ; </div>
+<div>$BODY$;</div>
+<div><br></div>
+<div>ALTER FUNCTION public.efin_budenq_updateactprocess()</div>
+<div>    OWNER TO openbravo;</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>ÑÑÑÑÑÑÑÑÑÑÑ</div>
+<div><br></div>
+<div><br></div>
+<div>-- FUNCTION: public.efin_updatefa()</div>
+<div><br></div>
+<div>-- DROP FUNCTION public.efin_updatefa();</div>
+<div><br></div>
+<div>CREATE OR REPLACE FUNCTION public.efin_updatefa(</div>
+<div>	)</div>
+<div>    RETURNS void</div>
+<div>    LANGUAGE 'plpgsql'</div>
+<div>    COST 100</div>
+<div>    VOLATILE </div>
+<div>AS $BODY$</div>
+<div><br></div>
+<div> DECLARE </div>
+<div><br></div>
+<div>v_budget_int_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>--TYPE RECORD IS REFCURSOR;</div>
+<div>Cur_EnquiryList RECORD;</div>
+<div><br></div>
+<div>BEGIN</div>
+<div> </div>
+<div> for Cur_EnquiryList in (select * from efin_budgetinquiry  inq </div>
+<div>                         where (inq.current_budget - inq.encumbrance -inq.spent_amt -inq.funds_available) <>0 and current_budget >0</div>
+<div>                       )</div>
+<div>   Loop</div>
+<div><br></div>
+<div>   update efin_budgetinquiry set funds_available = Cur_EnquiryList.current_budget - Cur_EnquiryList.encumbrance -Cur_EnquiryList.spent_amt   </div>
+<div>   where efin_budgetinquiry_id = Cur_EnquiryList.efin_budgetinquiry_id;</div>
+<div>     </div>
+<div><br></div>
+<div>  End Loop;</div>
+<div>  RETURN;</div>
+<div>END ; </div>
+<div><br></div>
+<div>$BODY$;</div>
+<div><br></div>
+<div>ALTER FUNCTION public.efin_updatefa()</div>
+<div>    OWNER TO tad;</div>
+<div><br></div>
+<div><br></div>
+<div>ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ</div>
+<div><br></div>
+<div><br></div>
+<div>-- FUNCTION: public.efin_budenq_updateactprocess()</div>
+<div><br></div>
+<div>-- DROP FUNCTION public.efin_budenq_updateactprocess();</div>
+<div><br></div>
+<div>CREATE OR REPLACE FUNCTION public.efin_budenq_updateactprocess(</div>
+<div>	)</div>
+<div>    RETURNS void</div>
+<div>    LANGUAGE 'plpgsql'</div>
+<div>    COST 100</div>
+<div>    VOLATILE </div>
+<div>AS $BODY$</div>
+<div><br></div>
+<div> DECLARE </div>
+<div>/*************************************************************************</div>
+<div>* All Rights Reserved.</div>
+<div>* Contributor(s): Poongodi 02-01-2018</div>
+<div>************************************************************************/</div>
+<div>v_client_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_ResultStr VARCHAR(2000):=''; --OBTG:VARCHAR2--</div>
+<div>v_message VARCHAR(2000):='';--OBTG:VARCHAR2--</div>
+<div>v_controlunit VARCHAR(32):=''; --OBTG:VARCHAR2--</div>
+<div>v_uniquecode VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_parentid VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_amount NUMERIC;</div>
+<div>v_deptfund character(1);</div>
+<div>v_isvirtual character(1);</div>
+<div><br></div>
+<div>v_isuniquecodepresent  NUMERIC;</div>
+<div>v_parentacctcomId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_budgetInqId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_salesregion_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecodename VARCHAR(2000); --OBTG:VARCHAR2--</div>
+<div>v_elementvalue_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_project_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_campaign_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_bpartner_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_activity_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user1_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user2_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_org_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecode_no VARCHAR(2000); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>v_budget_int_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>--TYPE RECORD IS REFCURSOR;</div>
+<div>Cur_ChildList RECORD;</div>
+<div>Cur_ParentList RECORD;</div>
+<div>Cur_List RECORD;</div>
+<div>BEGIN</div>
+<div> </div>
+<div>--get client id </div>
+<div><br></div>
+<div>      --Disable all trigger using in budget enq line</div>
+<div>	ALTER TABLE efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>    -- update spentamt=0 if departmentfunds='N' and isvirtual account='Y' in budget enquiry</div>
+<div>    update efin_budgetinquiry set Spent_Amt = 0 ; </div>
+<div>    </div>
+<div>    </div>
+<div>    -- check uniquecode is present , if not present then insert it</div>
+<div>	for Cur_ChildList in (select c_validcombination_id,efin_budgetint_id from efin_budinqinvactual_v</div>
+<div>	where  efin_budgetint_id is not null  group by </div>
+<div>			c_validcombination_id,efin_budgetint_id)</div>
+<div>	loop</div>
+<div>         v_isuniquecodepresent:=0;</div>
+<div>         v_uniquecode:=Cur_ChildList.c_validcombination_id ;</div>
+<div>         v_budget_int_id:=Cur_ChildList.efin_budgetint_id;</div>
+<div>         </div>
+<div>         select em_efin_isdeptfund, ad_org_id, ad_client_id, em_efin_uniquecode, em_efin_uniquecodename,c_salesregion_id,</div>
+<div>                account_id,c_project_id,c_campaign_id,c_bpartner_id,c_activity_id,user1_id,user2_id</div>
+<div>           into v_deptfund,v_org_id,v_client_id,v_uniquecode_no,v_uniquecodename,v_salesregion_id,</div>
+<div>                v_elementvalue_id,v_project_id,v_campaign_id,v_bpartner_id,v_activity_id,v_user1_id,v_user2_id   </div>
+<div>                from c_validcombination where c_validcombination_id =v_uniquecode;</div>
+<div>         select count(efin_budgetinquiry_id)  into v_isuniquecodepresent from  efin_budgetinquiry  where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>         if(v_isuniquecodepresent = 0) then</div>
+<div>           if(v_deptfund ='N') then</div>
+<div>             select efin_getparentAcctcom(v_uniquecode,v_client_id) into v_parentacctcomId from dual;</div>
+<div>              if(v_parentacctcomId is not null ) then</div>
+<div>              select  efin_budgetinquiry_id into v_budgetInqId from efin_budgetinquiry where  efin_budgetint_id  = v_budget_int_id and </div>
+<div>               c_validcombination_id = v_parentacctcomId;</div>
+<div>                if(v_budgetInqId is not null ) then</div>
+<div>                  INSERT INTO public.efin_budgetinquiry(</div>
+<div>                     efin_budgetinquiry_id, ad_client_id, ad_org_id, isactive, created, </div>
+<div>                     createdby, updated, updatedby, org_amt, obinc_amt, </div>
+<div>                     obdec_amt, rev_amount, revinc_amt, revdec_amt, disinc_amt, disdec_amt, </div>
+<div>                     current_budget, encumbrance, spent_amt, funds_available, description, uniquecode, </div>
+<div>                     uniquecodename, c_validcombination_id, c_salesregion_id, c_elementvalue_id, </div>
+<div>                     c_project_id, c_campaign_id, c_bpartner_id, c_activity_id, user1_id, user2_id, </div>
+<div>                     efin_budgetint_id, parent_id, depinc_amt, depdec_amt, isvirtual)</div>
+<div>                        VALUES (get_uuid(), v_client_id, v_org_id, 'Y', TO_DATE(NOW()),</div>
+<div>                                '100' , TO_DATE(NOW()) ,'100', 0, 0,</div>
+<div>                                0, 0, 0, 0, 0, 0,</div>
+<div>                                0, 0, 0, 0, '', v_uniquecode_no,</div>
+<div>                                v_uniquecodename, v_uniquecode, v_salesregion_id, v_elementvalue_id,</div>
+<div>                                v_project_id, v_campaign_id, v_bpartner_id, v_activity_id, v_user1_id, v_user2_id,</div>
+<div>                                v_budget_int_id, v_budgetInqId, 0, 0,'Y');</div>
+<div>                    end if;</div>
+<div>                   end if;        </div>
+<div>                end if;</div>
+<div>             end if;   </div>
+<div>           end loop ;     </div>
+<div>    </div>
+<div>	-- Department level update</div>
+<div>	for Cur_ChildList in (select sum(invamount),c_validcombination_id,efin_budgetint_id from efin_budinqinvactual_v</div>
+<div>	where  efin_budgetint_id is not null  group by </div>
+<div>			c_validcombination_id,efin_budgetint_id)</div>
+<div>	loop</div>
+<div>	v_amount = Cur_ChildList.sum;</div>
+<div>    v_isvirtual:='N';</div>
+<div>        v_uniquecode = Cur_ChildList.c_validcombination_id;</div>
+<div>       select em_efin_isdeptfund into v_deptfund from c_validcombination where c_validcombination_id = v_uniquecode;</div>
+<div>       if(v_deptfund = 'Y') then</div>
+<div>          update efin_budgetinquiry set Spent_Amt = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>       end if;</div>
+<div>       if(v_deptfund = 'N') then</div>
+<div>          select isvirtual into v_isvirtual from efin_budgetinquiry where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ;</div>
+<div>         if(v_isvirtual='Y') then</div>
+<div>          update efin_budgetinquiry set Spent_Amt = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>          end if;</div>
+<div>        end if;</div>
+<div>      end loop ;</div>
+<div><br></div>
+<div>       -- 999 level update</div>
+<div>        for Cur_ParentList in ( select coalesce((sum(vi.invamount)),0) as sum ,inq.efin_budgetinquiry_id   from  efin_budinqinvactual_v vi </div>
+<div>				left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id</div>
+<div>				and  inq.c_validcombination_id  = (select efin_getparentacctcom(vi.c_validcombination_id ,vi.ad_client_id) )</div>
+<div>				where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null</div>
+<div>				GROUP BY inq.efin_budgetinquiry_id </div>
+<div>				)</div>
+<div>	loop </div>
+<div>		update efin_budgetinquiry set Spent_Amt = Cur_ParentList.sum where efin_budgetinquiry.efin_budgetinquiry_id = Cur_ParentList.efin_budgetinquiry_id;</div>
+<div>    </div>
+<div>	end loop;</div>
+<div><br></div>
+<div>	--990 level</div>
+<div>	   for Cur_List in (select coalesce((sum(vi.invamount)),0)  as sum ,inq.efin_budgetinquiry_id from efin_budinqinvactual_v vi </div>
+<div>			left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id</div>
+<div>			and  inq.efin_budgetinquiry_id  =( select parent_id from efin_budgetinquiry en where en.c_validcombination_id = (</div>
+<div>			select efin_getparentacctcom(vi.c_validcombination_id,vi.ad_client_id))</div>
+<div>                                               and  en.efin_budgetint_id=vi.efin_budgetint_id)</div>
+<div>                                               where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null</div>
+<div>			GROUP BY inq.efin_budgetinquiry_id )</div>
+<div>	loop</div>
+<div>	update efin_budgetinquiry set Spent_Amt = Cur_List.sum where efin_budgetinquiry_id = Cur_List.efin_budgetinquiry_id;</div>
+<div>	end loop;</div>
+<div>	</div>
+<div>   --Enable all trigger using in budget enq line</div>
+<div>	ALTER TABLE efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>     </div>
+<div> </div>
+<div>  RETURN;</div>
+<div>END ; </div>
+<div><br></div>
+<div>$BODY$;</div>
+<div><br></div>
+<div>ALTER FUNCTION public.efin_budenq_updateactprocess()</div>
+<div>    OWNER TO openbravo;</div>
+<div><br></div>
+<div><br></div>
+<div>ÑÑÑÑÑÑÑÑÑÑÑÑÑ</div>
+<div><br></div>
+<div><br></div>
+<div>-- FUNCTION: public.efin_budenq_updateprocess()</div>
+<div><br></div>
+<div>-- DROP FUNCTION public.efin_budenq_updateprocess();</div>
+<div><br></div>
+<div>CREATE OR REPLACE FUNCTION public.efin_budenq_updateprocess(</div>
+<div>	)</div>
+<div>    RETURNS void</div>
+<div>    LANGUAGE 'plpgsql'</div>
+<div>    COST 100</div>
+<div>    VOLATILE </div>
+<div>AS $BODY$</div>
+<div><br></div>
+<div> DECLARE </div>
+<div>/*************************************************************************</div>
+<div>* All Rights Reserved.</div>
+<div>* Contributor(s): Poongodi 27.12.17</div>
+<div>************************************************************************/</div>
+<div>v_client_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_ResultStr VARCHAR(2000):=''; --OBTG:VARCHAR2--</div>
+<div>v_message VARCHAR(2000):='';--OBTG:VARCHAR2--</div>
+<div>v_controlunit VARCHAR(32):=''; --OBTG:VARCHAR2--</div>
+<div>v_uniquecode VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_parentid VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_amount NUMERIC;</div>
+<div>v_deptfund character(1);</div>
+<div>v_isvirtual character(1);</div>
+<div><br></div>
+<div>v_isuniquecodepresent  NUMERIC;</div>
+<div>v_parentacctcomId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_budgetInqId VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_salesregion_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecodename VARCHAR(2000); --OBTG:VARCHAR2--</div>
+<div>v_elementvalue_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_project_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_campaign_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_bpartner_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_activity_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user1_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_user2_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_org_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div>v_uniquecode_no VARCHAR(2000); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>v_budget_int_id VARCHAR(32); --OBTG:VARCHAR2--</div>
+<div><br></div>
+<div>--TYPE RECORD IS REFCURSOR;</div>
+<div>Cur_ChildList RECORD;</div>
+<div>Cur_ParentList RECORD;</div>
+<div>Cur_List RECORD;</div>
+<div>BEGIN</div>
+<div> </div>
+<div>--get client id </div>
+<div><br></div>
+<div>      --Disable all trigger using in budget enq line</div>
+<div>	ALTER TABLE efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry DISABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>    </div>
+<div>    update efin_budgetinquiry set encumbrance = 0 ;</div>
+<div>    </div>
+<div>    </div>
+<div>        -- check uniquecode is present , if not present then insert it</div>
+<div>	for Cur_ChildList in (select c_validcombination_id,efin_budgetint_id from efin_encum_details_v</div>
+<div>	where  efin_budgetint_id is not null  group by </div>
+<div>			c_validcombination_id,efin_budgetint_id)</div>
+<div>	loop</div>
+<div>         v_isuniquecodepresent:=0;</div>
+<div>         v_uniquecode:=Cur_ChildList.c_validcombination_id ;</div>
+<div>         v_budget_int_id:=Cur_ChildList.efin_budgetint_id;</div>
+<div>         </div>
+<div>         select em_efin_isdeptfund, ad_org_id, ad_client_id, em_efin_uniquecode, em_efin_uniquecodename,c_salesregion_id,</div>
+<div>                account_id,c_project_id,c_campaign_id,c_bpartner_id,c_activity_id,user1_id,user2_id</div>
+<div>           into v_deptfund,v_org_id,v_client_id,v_uniquecode_no,v_uniquecodename,v_salesregion_id,</div>
+<div>                v_elementvalue_id,v_project_id,v_campaign_id,v_bpartner_id,v_activity_id,v_user1_id,v_user2_id   </div>
+<div>                from c_validcombination where c_validcombination_id =v_uniquecode;</div>
+<div>         select count(efin_budgetinquiry_id)  into v_isuniquecodepresent from  efin_budgetinquiry  where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>         if(v_isuniquecodepresent = 0) then</div>
+<div>           if(v_deptfund ='N') then</div>
+<div>             select efin_getparentAcctcom(v_uniquecode,v_client_id) into v_parentacctcomId from dual;</div>
+<div>              if(v_parentacctcomId is not null ) then</div>
+<div>               select  efin_budgetinquiry_id into v_budgetInqId from efin_budgetinquiry where  efin_budgetint_id  = v_budget_int_id and </div>
+<div>               c_validcombination_id = v_parentacctcomId;</div>
+<div>                if(v_budgetInqId is not null ) then</div>
+<div>                  INSERT INTO public.efin_budgetinquiry(</div>
+<div>                     efin_budgetinquiry_id, ad_client_id, ad_org_id, isactive, created, </div>
+<div>                     createdby, updated, updatedby, org_amt, obinc_amt, </div>
+<div>                     obdec_amt, rev_amount, revinc_amt, revdec_amt, disinc_amt, disdec_amt, </div>
+<div>                     current_budget, encumbrance, spent_amt, funds_available, description, uniquecode, </div>
+<div>                     uniquecodename, c_validcombination_id, c_salesregion_id, c_elementvalue_id, </div>
+<div>                     c_project_id, c_campaign_id, c_bpartner_id, c_activity_id, user1_id, user2_id, </div>
+<div>                     efin_budgetint_id, parent_id, depinc_amt, depdec_amt, isvirtual)</div>
+<div>                        VALUES (get_uuid(), v_client_id, v_org_id, 'Y', TO_DATE(NOW()),</div>
+<div>                                '100' , TO_DATE(NOW()) ,'100', 0, 0,</div>
+<div>                                0, 0, 0, 0, 0, 0,</div>
+<div>                                0, 0, 0, 0, '', v_uniquecode_no,</div>
+<div>                                v_uniquecodename, v_uniquecode, v_salesregion_id, v_elementvalue_id,</div>
+<div>                                v_project_id, v_campaign_id, v_bpartner_id, v_activity_id, v_user1_id, v_user2_id,</div>
+<div>                                v_budget_int_id, v_budgetInqId, 0, 0,'Y');</div>
+<div>                    end if;</div>
+<div>                   end if;        </div>
+<div>                end if;</div>
+<div>             end if;   </div>
+<div>           end loop ; </div>
+<div><br></div>
+<div>	-- Department level update</div>
+<div>	for Cur_ChildList in (select coalesce((sum(revamt)),0) as sum ,c_validcombination_id,efin_budgetint_id from efin_encum_details_v</div>
+<div>	where  efin_budgetint_id is not null  group by </div>
+<div>			c_validcombination_id,efin_budgetint_id)</div>
+<div>	loop</div>
+<div>	v_amount = Cur_ChildList.sum;</div>
+<div>    v_isvirtual:='N';</div>
+<div><br></div>
+<div>        v_uniquecode = Cur_ChildList.c_validcombination_id;</div>
+<div>       select em_efin_isdeptfund into v_deptfund from c_validcombination where c_validcombination_id = v_uniquecode;</div>
+<div>       if(v_deptfund = 'Y') then</div>
+<div>       select parent_id into v_parentid from efin_budgetinquiry where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ;</div>
+<div>       update efin_budgetinquiry set encumbrance = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>       end if;</div>
+<div>       if(v_deptfund = 'N') then</div>
+<div>        select isvirtual into v_isvirtual from efin_budgetinquiry where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ;</div>
+<div>         if(v_isvirtual='Y') then</div>
+<div>          update efin_budgetinquiry set encumbrance = v_amount where c_validcombination_id = v_uniquecode and efin_budgetint_id = Cur_ChildList.efin_budgetint_id ; </div>
+<div>         end if;</div>
+<div>        end if;</div>
+<div>      end loop ;</div>
+<div><br></div>
+<div>       -- 999 level update</div>
+<div>        for Cur_ParentList in ( select coalesce((sum(vi.revamt)),0) as sum ,inq.efin_budgetinquiry_id   from  efin_encum_details_v vi </div>
+<div>				left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id</div>
+<div>				and  inq.c_validcombination_id  = (select efin_getparentacctcom(vi.c_validcombination_id ,vi.ad_client_id) )</div>
+<div>				where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null and   	encum_type <>'TE'</div>
+<div>				GROUP BY inq.efin_budgetinquiry_id </div>
+<div>				)</div>
+<div>	loop </div>
+<div>		update efin_budgetinquiry set encumbrance = Cur_ParentList.sum where efin_budgetinquiry.efin_budgetinquiry_id = Cur_ParentList.efin_budgetinquiry_id;</div>
+<div>    </div>
+<div>	end loop;</div>
+<div><br></div>
+<div>	--990 level</div>
+<div>	   for Cur_List in (select coalesce((sum(vi.revamt)),0)  as sum ,inq.efin_budgetinquiry_id from efin_encum_details_v vi </div>
+<div>			left join efin_budgetinquiry inq   on vi.efin_budgetint_id = inq.efin_budgetint_id</div>
+<div>			and  inq.efin_budgetinquiry_id  =( select parent_id from efin_budgetinquiry en where en.c_validcombination_id = (</div>
+<div>			select efin_getparentacctcom(vi.c_validcombination_id,vi.ad_client_id))</div>
+<div>                                               and  en.efin_budgetint_id=vi.efin_budgetint_id)</div>
+<div>                                               where inq.efin_budgetinquiry_id  is not null and  inq.efin_budgetint_id is not null</div>
+<div>			GROUP BY inq.efin_budgetinquiry_id )</div>
+<div>	loop</div>
+<div>	update efin_budgetinquiry set encumbrance = Cur_List.sum where efin_budgetinquiry_id = Cur_List.efin_budgetinquiry_id;</div>
+<div>	end loop;</div>
+<div>	</div>
+<div>   --Enable all trigger using in budget enq line</div>
+<div>	ALTER TABLE efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiry_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_budgetinquiryneg_trg;</div>
+<div>	ALTER TABLE public.efin_budgetinquiry ENABLE TRIGGER efin_updatebudinq_actualtrg;</div>
+<div>     </div>
+<div> </div>
+<div>  RETURN;</div>
+<div>END ; </div>
+<div><br></div>
+<div>$BODY$;</div>
+<div><br></div>
+<div>ALTER FUNCTION public.efin_budenq_updateprocess()</div>
+<div>    OWNER TO openbravo;</div>
+<div><br></div>
+<div><br></div>
+<div>ÑÑÑÑÑÑÑ</div>
+<div><br></div>
+<div>	update efin_budgetinquiry set encumbrance = 45000000.00  where efin_budgetinquiry_id in ('19637B1D50964A52BFAB3CF701CC5878','588CA931CC5D4578B89BA3EA7FD400B5')</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>select  updateBudgetenquiry();</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>update efin_manualencuminvoice set ispaid ='N' where efin_manualencuminvoice_id in (</div>
+<div>select efin_manualencuminvoice_id from efin_manualencuminvoice encumref</div>
+<div>join efin_budget_manencumlines lines on lines.efin_budget_manencumlines_id = encumref.efin_budget_manencumlines_id</div>
+<div>join efin_budget_manencum header on header.efin_budget_manencum_id = lines.efin_budget_manencum_id</div>
+<div>join c_campaign budget on budget.c_campaign_id = header.c_campaign_id</div>
+<div>join c_invoice inv on inv.c_invoice_id = encumref.c_invoice_id</div>
+<div>where budget.em_efin_budgettype='C' and encumref.ispaid ='Y'</div>
+<div>and c_doctype_id not in ('757A043DA459420A9CB5A5216189BA1D' ,'A4AB9B51B6514820903CE6C3B50418AE')</div>
+<div>);</div>

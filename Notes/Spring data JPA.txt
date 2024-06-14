@@ -1,0 +1,62 @@
+<div><br></div>
+<div>https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference<br></div>
+<div><br></div>
+<div><br></div>
+<div>Main interface is Repository -> It is a marker interface</div>
+<div><br></div>
+<div>Main interface which extends this Repository interface:</div>
+<div><br></div>
+<ul>
+<li>   CrudRepository</li>
+</ul>
+<div><br></div>
+<div><br></div>
+<div>public interface CrudRepository<T, ID> extends Repository<T, ID> {</div>
+<div><br></div>
+<div>  <S extends T> S save(S entity);      </div>
+<div><br></div>
+<div>  Optional<T> findById(ID primaryKey); </div>
+<div><br></div>
+<div>  Iterable<T> findAll();               </div>
+<div><br></div>
+<div>  long count();                        </div>
+<div><br></div>
+<div>  void delete(T entity);               </div>
+<div><br></div>
+<div>  boolean existsById(ID primaryKey);   </div>
+<div><br></div>
+<div>  // É more functionality omitted.</div>
+<div>}</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><u>PagingAndSortingRepository</u><u><br></u></div>
+<div><u><br></u></div>
+<div>public interface PagingAndSortingRepository<T, ID> extends CrudRepository<T, ID> {</div>
+<div><br></div>
+<div>  Iterable<T> findAll(Sort sort);</div>
+<div><br></div>
+<div>  Page<T> findAll(Pageable pageable);</div>
+<div>}</div>
+<div><br></div>
+<div>PagingAndSortingRepository<User, Long> repository = // É get access to a bean</div>
+<div>Page<User> users = repository.findAll(PageRequest.of(1, 20));</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>@EnableJpaRepositories this will enable the custom repository created using the extend of repository to its sub repositories</div>
+<div><br></div>
+<div><br></div>
+<div>Persistence</div>
+<div>Entity Factory</div>
+<div>Entity Manager	</div>
+<div><br></div>
+<div><br></div>
+<div>Persistence Class is used to get the entity factory  and from entity factory you can get the entity manager instance</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>

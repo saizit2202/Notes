@@ -1,0 +1,32 @@
+<div><br></div>
+<div>Contains Image and container. It will run inside the linux machine. Docker virtually have linux os</div>
+<div><br></div>
+<div><br></div>
+<div>Docker run <image-name> - it will download if it doesn’t have in local</div>
+<div>Docker ps - to list all the running containers	</div>
+<div><br></div>
+<div>Docker run = Docker create + Docker start</div>
+<div><br></div>
+<div><br></div>
+<div>Docker create <image-name> will create container. It will return the container ID</div>
+<div>Docker start -a <containerID> - will attach and start the container</div>
+<div><br></div>
+<div><br></div>
+<div>Once the docker container is finished running, we can start it again using Docker start -a <containerID></div>
+<div><br></div>
+<div>Docker system prune - It will remove all the stopped docker</div>
+<div><br></div>
+<div><br></div>
+<div>Docker log <containerID> - it will show the log of docker container</div>
+<div><br></div>
+<div><br></div>
+<div>Docker stop <containerID> - It will stop the running container, I will take 10 seconds to stop</div>
+<div>Docker kill <containerID> - It will kill the running container immediately</div>
+<div><br></div>
+<div><br></div>
+<div>Docker exec -it <containerID> <Extra command to run in running container>\</div>
+<div><br></div>
+<div>?<br></div>
+<div><br></div>
+<div><br></div>
+<div>-it - will attach the terminal with container</div>

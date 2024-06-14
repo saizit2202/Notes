@@ -1,0 +1,10 @@
+
+zip -r filename.zip folder
+
+Zip -r jaysarstage.zip jaysarstage
+
+
+
+
+
+zip -r elmnew_aug32.zip elm

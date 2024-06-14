@@ -1,0 +1,16 @@
+http://182.18.161.127/mantis/view.php?id=7148 - Cost centre
+http://182.18.161.127/mantis/view.php?id=7143 - accounting
+http://182.18.161.127/mantis/view.php?id=7146 - Gregorian
+http://182.18.161.127/mantis/view.php?id=7147 - Relocate vat 
+
+
+
+Add tab for Cost centre
+Add Gregorian date in transaction version
+Add validation only if ar receipt then show sodded
+Check payment out accounting sequence is not working some where
+
+
+923333443143
+
+	1.	Check increase decrease zero

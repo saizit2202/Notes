@@ -1,0 +1,12 @@
+<div><br></div>
+<ul>
+<li>Snapshot_BUT_QA_MULTISERVER_INTEGRATIONDEV:Ê<u>https://ci-but.openbravo.com/job/L50_Tests_Dev/</u>. This job is running using development code.</li>
+</ul>
+<div><br></div>
+<div><br></div>
+<div>BUT DELIVERY</div>
+<div><br></div>
+<ul>
+<li>Snapshot_BUT_DELIVERY_CUSTOM_CI: <u>https://ci-but.openbravo.com/job/L50_Tests/</u> . This job is running using production code.</li>
+</ul>
+<div><br></div>

@@ -1,0 +1,6 @@
+
+
+
+delete from eut_next_role_line where eut_next_role_line_id in (select eut_next_role_line_id from eut_next_role role
+join eut_next_role_line line on line.eut_next_role_id= role.eut_next_role_id
+where role.document_type in(EUT_127))

@@ -1,0 +1,3 @@
+
+
+Use Strict mode -> this will enable the checking the uncreated variables

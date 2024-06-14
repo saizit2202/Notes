@@ -1,0 +1,17 @@
+Npm install -g @angular/cli
+
+Create new project 
+Ng new projectname
+
+Start development server
+Ng serve in project location
+
+Default port: 
+http://localhost:4200
+
+
+
+Using ngModule in forms needs to be import in typescript of the component
+
+
+npm install --save bootstrap@3 Install bootstrap 3 in local project not globally

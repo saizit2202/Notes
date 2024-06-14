@@ -1,0 +1,8 @@
+	•	Spring Boot
+	•	React
+	•	Spring JPA
+	•	Rabbit MQ
+	•	Design patterns
+	•	GIT
+	•	Data Structure
+

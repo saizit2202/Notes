@@ -1,0 +1,98 @@
+<div><br></div>
+<div>select pg_terminate_backend(pid) from pg_stat_activity where datname='main';</div>
+<div><br></div>
+<div>ssh -L 5932:localhost:5432 qualian@qualiantracker.dyndns.org -p 9099</div>
+<div><br></div>
+<div><br></div>
+<div>CREATE DATABASE main</div>
+<div>    WITH </div>
+<div>    OWNER = tad</div>
+<div>	TEMPLATE = template0</div>
+<div>    ENCODING = 'UTF8'</div>
+<div>    LC_COLLATE = 'C'</div>
+<div>    LC_CTYPE = 'C'</div>
+<div>    TABLESPACE = pg_default</div>
+<div>    CONNECTION LIMIT = -1;</div>
+<div><br></div>
+<div><br></div>
+<div>Url: <u>http://192.168.1.32:8089/jenkins/</u><br></div>
+<div>Username: QA</div>
+<div>Password: qual123</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div> ~/.rccontrol-profile/bin/rccontrol stop community-1</div>
+<div>  ~/.rccontrol-profile/bin/rccontrol stop vcsserver-1</div>
+<div><br></div>
+<div>DUMP:</div>
+<div> pg_dump -U tad elmtest  > /home/qualian/elmtest.sql</div>
+<div><br></div>
+<div><br></div>
+<div>gunzip openbravo_prod_2020-11-16_12-57.dump.gz</div>
+<div><br></div>
+<div><br></div>
+<div>update ad_user set password='fEqNCco3Yq9h5ZUglD3CZJT4lBs=' where ad_user_id='100Õ;</div>
+<div><br></div>
+<div><br></div>
+<div>SET session_replication_role = replica;</div>
+<div>update ad_user set password='fEqNCco3Yq9h5ZUglD3CZJT4lBs=';</div>
+<div>SET session_replication_role = DEFAULT;</div>
+<div><br></div>
+<div><br></div>
+<div>SET session_replication_role = replica;</div>
+<div>update ad_user set default_ad_language='en_US';</div>
+<div>SET session_replication_role = DEFAULT;</div>
+<div><br></div>
+<div><br></div>
+<ol>
+<li>Restore from root user</li>
+</ol>
+<div>psql -h localhost -U tad -d main -f /home/qualian/opt/DB_backup/bk1/openbravo_prod_2020-11-16_12-57.dump</div>
+<div><br></div>
+<div>psql -h localhost -U postgres -d elm -f /opt/elmbackup.sql </div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<ul>
+<li><u>http://182.18.161.127/mantis/view.php?id=</u><u>7533</u><br></li>
+<li><u>http://182.18.161.127/mantis/view.php?id=7520</u><br></li>
+<li><u>http://182.18.161.127/mantis/view.php?id=7540</u><br></li>
+<li><u>http://182.18.161.127/mantis/view.php?id=7523</u><br></li>
+<li><u>http://182.18.161.127/mantis/view.php?id=7495</u><br></li>
+</ul>
+<div><u><br></u></div>
+<div><u><br></u></div>
+<div><u>7533 - Done</u></div>
+<div><u>7520 - Done</u></div>
+<div><u>7540 - Done</u></div>
+<div><u>7523 - Done</u></div>
+<div><u>7495 - Done</u><br></div>
+<div><br></div>
+<div><br></div>
+<div>hg import ../../sa.elm.ob.scm_5073.patch</div>
+<div><br></div>
+<div>5148 se invoice completed and payment out</div>
+<div>Iban </div>
+<div>Payment out cancelled and they reactivated se invite delete se invoice</div>
+<div><br></div>
+<div><br></div>
+<div>select eut_documentrule_header_id, ad_role_id from eut_documentrule_lines where eut_documentrule_header_id in (select eut_documentrule_header_id from eut_documentrule_header where document_type='EUT_108')</div>
+<div>and rolesequenceno='1'</div>
+<div><br></div>
+<div><br></div>
+<div>"A81ED164033C451EBF15633918BBE307"</div>
+<div>"B1D6755459E048C9B802ADE252098F74"</div>
+<div><br></div>
+<div>update eut_documentrule_header set rulevalue=0,versionno='0', requester_role='F7FADECD630B4EEB88CA5E0ECD0B8357', ismultirule='Y' where eut_documentrule_header_id='83C37342D4C045F6B95240E7A7C93FC2';</div>
+<div>update eut_documentrule_header set rulevalue=0,versionno='0', requester_role='860E5C820A6E4CFF8AD41C1639D8A59C', ismultirule='Y' where eut_documentrule_header_id='CB36A19726AF4071866EB14B106A57BA';</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>update eut_documentrule_header set ismultirule='Y',versionno='0',requester_role='F7FADECD630B4EEB88CA5E0ECD0B8357' where eut_documentrule_header_id='175D96EDEC9D4DF2B19D8F268EE20F42';</div>
+<div>update eut_documentrule_header set ismultirule='Y',versionno='0',requester_role='860E5C820A6E4CFF8AD41C1639D8A59C' where eut_documentrule_header_id='D5D01E5168094A4B92F2A43EB53A2A6A';</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>

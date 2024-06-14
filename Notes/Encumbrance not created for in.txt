@@ -1,0 +1,65 @@
+400000418 - Same invoice is created twice - 400000542
+400004896 - funds available is lesser 301220100
+
+400001803 - remaining amount in negative because applied amount is greater than remaining amount PO 1006004 net amount is 13,777,770.00
+
+
+delete from efin_bud_manencum_rev where efin_bud_manencum_rev_id ='B1B7C0F1A8FB4A7FB1B384E97CD2B9EA'
+
+update efin_budget_manencum set app_amt=amount where efin_budget_manencum_id='334E771BB08F47DCB88BE952CD87427A'
+
+update efin_budget_manencum set app_amt=amount where efin_budget_manencum_id='E86B1B659A924301911E79CE264F2E8A'
+
+
+update efin_budget_manencum set app_amt=amount where efin_budget_manencum_id='C6BD260953F74622A0C4E4D76DF9050F'
+
+INSERT INTO public.efin_manualencuminvoice(
+ad_client_id, ad_org_id, isactive, created, createdby, updated, updatedby, 
+efin_manualencuminvoice_id, c_invoice_id, efin_budget_manencumlines_id, dateinvoiced, documentno, dateacct, invamount, 
+description, c_invoiceline_id, ispaid, fin_payment_id, issplit, prepaymeninvoice)
+VALUES ('FFEFCBB01E1F412886CB69CDBDD81774', 'D67E1FAA6B9445758EE62BAB1A211C3A', 'Y', now(), 'F20A330F3BC94CC591BEA96D8A7FBD35', now(),'F20A330F3BC94CC591BEA96D8A7FBD35',
+get_uuid(),'6EFBA99F2AD642F18508F7A27A48F2C9','8E0644A33D1245088D3B1E2FA5BCDE65', now(), '400000018', now(), 18867.00, 
+'', 'D6E9C4553FF1466F9395392AE23EFA3E', 'Y', null, 'N',null);
+
+
+-- Data fix for invoice posted flag
+
+update c_invoice set posted ='Y' where c_invoice_id in (select invoice.c_invoice_id from fin_finacc_transaction transaction
+join fin_payment payment on payment.fin_payment_id = transaction.fin_payment_id
+join c_invoice invoice on invoice.c_invoice_id = payment.em_efin_invoice_id
+where invoice.posted<>transaction.posted and transaction.posted!='EFIN_PP' and invoice.c_doctype_id!='757A043DA459420A9CB5A5216189BA1D');
+
+
+-- Data fix for invoice reference in encumrbance is paid flag
+
+update efin_manualencuminvoice set ispaid ='Y' where efin_manualencuminvoice_id in (select efin_manualencuminvoice_id from efin_manualencuminvoice encumref
+join efin_budget_manencumlines lines on lines.efin_budget_manencumlines_id = encumref.efin_budget_manencumlines_id
+join efin_budget_manencum header on header.efin_budget_manencum_id = lines.efin_budget_manencum_id
+join c_campaign budget on budget.c_campaign_id = header.c_campaign_id
+join c_invoice inv on inv.c_invoice_id = encumref.c_invoice_id
+where inv.posted <> encumref.ispaid and budget.em_efin_budgettype='F'and inv.c_doctype_id!='757A043DA459420A9CB5A5216189BA1D' )
+
+
+
+
+--select updateOrderlineAmount()
+
+CREATE OR REPLACE FUNCTION updateOrderlineAmount()
+RETURNS void
+LANGUAGE 'plpgsql'
+COST 100
+VOLATILE 
+AS $BODY$
+DECLARE 
+
+
+BEGIN
+ALTER TABLE c_orderline
+DISABLE TRIGGER all; 
+update efin_budget_manencumlines set app_amt=13777769.90 where efin_budget_manencumlines_id ='87304C07CC4249BABCF6CEF30A30312D';
+update c_orderline set linenetamt=13777769.90 where c_orderline_id ='484D18A696C447AD81C1BE2584F769BA';
+update c_order set grandtotal=13777769.90, totallines =13777769.90 where c_order_id ='D7BAD6780D7A4D059F890E3D4D12A641';
+ALTER TABLE c_orderline
+ENABLE TRIGGER all; 
+END ; 
+$BODY$;

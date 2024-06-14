@@ -1,0 +1,16 @@
+
+	1.	Apply core patch for bg internal number
+	2.	Format.xml - done
+	3.	Smartclient js -done
+	4.	Apply trigger for decimal issue -done
+	5.	Apply where clause and budget revision lines view -done
+	6.	Field Name change in legacy details -done
+	7.	Update the view for efin_contract_rdv details EPM -done
+	8.	 
+
+
+
+
+	1.	Core files - bg and tree structure and wad for audit
+	2.	Check view are updated properly invoice view and efin contract view
+	3.	 

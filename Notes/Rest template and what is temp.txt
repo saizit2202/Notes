@@ -1,0 +1,81 @@
+Functional interface and streams
+Autowired and autowired modes
+Dependency injection and types
+Singleton and prototype in spring
+Design patterns used
+Sorting data structures
+Spring profiling
+Calling properties file and get value in spring application
+Overriding properties file at runtime
+Kafka - is it to communicate between different microservices?
+Difference between runnable and callable
+Difference between out of memory exception and stack overflow exception
+Publishing microservices
+Ways of implementing encapsulation
+Multiple inheritance with interface is possible?
+@springbootapplication and difference between @restcontroller and @controller
+What is microservices
+Spring factories concept - to provide our custom autoconfiguration
+Thread local variables - how to maintain the sleuth Id throughout the request
+@qualifier and @primary
+N+1 problem in hibernate
+Various types in outofmemory exception
+Can we do concurrent modification in streams i.e. stream and parallel stream
+How to implement immutable class
+Change in hashmap from java 8
+String pool
+Circuit breaker and configuring default response if some of the microservices are down.
+Metrics tool for production in spring boot
+Eureka naming server and client discovery
+Custom annotations
+Transaction management in microservice
+Docker volume
+Can we override static method?
+Iterator - Fail fast and fail soon
+Callable - blocking and un blocking
+Thread pool management and shutdown hook
+Serialisation
+Difference between post, patch and put in http
+Classloader
+Stateless and stateful protocol
+@component, prerequisite for @autowired, what will happen if we do @autowire for which @component is not present
+
+Completable feature - which thread pool uses it
+Map() in stream to convert custom object to string
+How pagenation works - paging query
+Intern() method in java - how many objects will be created in string pool when we use new operator every time
+Architecture in springWeb
+Why spring
+What if two two beans available for the same type
+Difference between proxy and gateway
+Circular dependency problem in spring
+
+
+
+
+
+
+
+
+JRE vs JVM
+What is static void main
+What is Static
+What is static block
+Different constructors
+Calling constructors with in class and other class
+Static binding and dynamic binding
+List and set
+Deadlock in java
+Why multiple inheritance is not possible in java
+Hashmap with employee object, prevent duplicate object in employee
+Calling method overloading with int and long
+Hashcode implementation
+Abstract class and interface (when to use when)
+Character and primitive type memeory bytes
+Exception in java(Without try block how will you handle)
+String is immutable
+Create own immutable class
+Access specifiers
+instance variable and a local variable?
+ClassNotFoundException and NoClassDefFoundError
+java is secured?

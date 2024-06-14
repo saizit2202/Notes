@@ -1,0 +1,218 @@
+
+
+drop table efin_taswyat_legacy;
+drop table efin_expenses_legacy;
+
+drop table efin_deduction_legacy;
+
+drop table efin_payments_legacy;
+
+DROP TABLE EFIN_QUANTITY_DONE_LEGACY;
+
+
+select * from eut_delegate_role_check limit 100
+
+select * from ad_role where ad_role_id='2464232D0F994A8181FEC01D7C5FAE06'
+
+select * from ad_alert limit 1
+
+
+select * from eut_forward_reqmoreinfo order by created desc 
+
+
+select * from eut_forward_reqmoreinfo
+34B6A1AF27F24B408F0FF588320CC6B4
+select * from ad_user where ad_user_id='07B3FE7B51CA470FA30B87B09A037493'
+select * from m_requisition order by created desc
+
+where m_requisition_id='04ADE1F569E947C18E010BB50DF01767'
+select * from eut_next_role_line where eut_next_role_line_id='3BE3A41CA5C84D85981EBC3AA49AB7C2'
+
+select * from ad_alert where referencekey_id='15B4425C43AE4332BCCBAEE260F3726D'
+B6D16449C31E4653A9089878B7DC3165
+
+Purchase Requisition was Forwarded By ??? ????? ???? ???? access given to the ??????
+
+select * from ad_role where ad_role_id='FB6C84C9CCBF486E9C65F87143636BF3'
+select * from eut_next_role_line order by created desc 
+
+where eut_next_role_line_id='DDD9E8FE4CDB43C6BCF9F88CB8D38171'
+
+
+select * from m_requisition where m_requisition_id='94B7642440C44C36813515503AB0F7C9'
+
+order by created desc limit 10
+ALTER TABLE public.ad_alert
+ADD COLUMN em_eut_frwdrole character varying(50) COLLATE pg_catalog."default" DEFAULT 'N'::bpchar;
+ALTER TABLE public.ad_alert
+drop COLUMN em_eut_isoriginalalert character(1) COLLATE pg_catalog."default";
+select * from ad_module where isindevelopment='Y' 
+
+update ad_module set isindevelopment='Y' where ad_module_id='E610580A91734A8EB5A88BD4AC9E19FB'
+
+
+
+drop function EFIN_REMOVE_ENCUMBRANCE_DUPLICATES();
+drop function EFIN_DELETEPRODUCTTRANSACTION_DUPLICATE_PORECIEPTS ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_ENCUM_PO_LEGACY_NOT_EQUALS ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_FOR_DRAFT_PO ();
+drop function EFIN_DELETEENCUMBRANCE_APPLIEDAMT_NEGATIVE ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_TANFEETH ();
+drop function EFIN_UPDATEREMAININGAMTINENCUMBRANCEHEADER ();
+drop function EFIN_BUDENQ_UPDATEPROCESSFORONEACCOUNT ();
+drop function EFIN_INSERTDIRECTENCUMBRANCEDATA ();
+drop function EFIN_INSERTPROPOSALENCUMBRANCEDATA ();
+drop function EFIN_INSERTENCUMINVOICEREFERENCE ();
+drop function EFIN_UPDATEAPPAMTINENCUMBRANCEHEADER ();
+drop function EFIN_UPDATEENCUMBRANCEMISMATCHAMT ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_CONSULTANT ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_CONSULTANT_FULLAMOUNT ();
+drop function EFIN_UPDATE_LEGACY_PAID_ONETOMANY ();
+drop function EFIN_DELETEPRODUCTTRANSACTION_DUPLICATE ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_FOR_FULLYLEGACYPAID ();
+drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT ();
+drop view EFIN_CONTRACT_RDV_INVOICE_VIEW_COPY;
+drop view EFIN_MAINTENANCE_CONTRACT_INV_V;
+drop table TANFEETHORDERLINELEGACYDETAILS_2;
+
+Drop function EFIN_REMOVE_ENCUMBRANCE_DUPLICATES();
+Drop function EFIN_DELETEPRODUCTTRANSACTION_DUPLICATE_PORECIEPTS();
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_ENCUM_PO_LEGACY_NOT_EQUALS(); 
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_FOR_DRAFT_PO() ;
+Drop function EFIN_DELETEENCUMBRANCE_APPLIEDAMT_NEGATIVE() ;
+Drop function EFIN_INSERTLINES_IN_TEMPENCUMRBANCE() ;
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_TANFEETH ();
+Drop function EFIN_UPDATEREMAININGAMTINENCUMBRANCEHEADER() ;
+Drop function EFIN_INSERTDIRECTENCUMBRANCEDATA() ;
+Drop function EFIN_INSERTPROPOSALENCUMBRANCEDATA() ;
+Drop function EFIN_INSERTENCUMINVOICEREFERENCE() ;
+Drop function EFIN_UPDATEAPPAMTINENCUMBRANCEHEADER() ;
+Drop function EFIN_UPDATEENCUMBRANCEMISMATCHAMT() ;
+--Drop function EFIN_INSERTLINES_IN_FUNDSREQLINE() ;
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_CONSULTANT() ;
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_CONSULTANT_FULLAMOUNT() ;
+Drop function EFIN_UPDATE_LEGACY_PAID_ONETOMANY() ;
+Drop function EFIN_DELETEPRODUCTTRANSACTION_DUPLICATE() ;
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT_FOR_FULLYLEGACYPAID() ;
+Drop function EFIN_UPDATE_MOVE_LEGACY_USEDAMOUNT() ;
+--Drop function EFIN_UPDATE_LEGACY_SPENTINNEWYEARBUDGET() ;
+--Drop function EFIN_BUDENQ_UPDATEPROCESSFORONEACCOUNT() ;
+drop view EFIN_ENCUMBRANCE_HISTORY_V_COPY ;
+drop view EFIN_CHAPTERWISE_BUDGET_DETAIL_V ;
+drop view EFIN_CONTRACT_RDV_INVOICE_VIEW_COPY ;
+drop view EFIN_MAINTENANCE_CONTRACT_INV_V ;
+drop table TANFEETHORDERLINELEGACYDETAILS_2 ;
+
+
+
+
+drop function ESCM_INSERTPOLEGACYHEADER_OTHERS();
+drop function ESCM_UPDATELEGACYREFERENCEFORDUPLICAELEGACY();
+drop function ESCM_UPDATEPAIDANDUNPAIDINENCUMBRANCELINES();
+--drop function ESCM_UPDATE_REMAINING_ALL_AMOUNT_CONTRACTs();
+--drop function ESCM_PO_MULTOSINGLELINEVALIDATION();
+drop function ESCM_UPDATEVERSIONNOFORLEGACYWHICHISEXTRA();
+--drop function ESCM_INSERTMISSINGVERSIONINLEGACy();
+drop function ESCM_REMOVE_TANFEETH_DUPLICATES();
+drop function ESCM_INSERTPOHEADERREVISIONZERO();
+drop function ESCM_UPDATEINTIALRECEIPTUNITPRICE(); 
+drop function ESCM_INSERT_MISSEDMAINTAIN_CONTRTS(); 
+drop function ESCM_UPDATEARBICNAMEINELEMENTVALUE(); 
+drop function ESCM_UPDATE_ORG_CURRENTAMOUNT_ROUTINE();
+drop function ESCM_UPDATE_CHANGEVALUE_AMOUNT_IN_NET_ORDER();
+drop function ESCM_UPDATE_ORG_CURRENTAMOUNT_MISSMATCH(); 
+drop function ESCM_UPDATESPECSEQUENCEOMPORECEIPT();
+drop function ESCM_UPDATE_PAID_MAINTAIN_ENCUM();
+drop function ESCM_INSERTPOLEGACYLINES_OTHERS();
+drop function ESCM_UPDATEVERSIONNOFORLEGACYWHICHISNULL() ;
+drop function ESCM_UPDATE_REMAINING_MAINTAIN_CONTRACTS();
+drop view ESCM_INVOICE_RDV_LETTERNO_VIEW_COPY ;
+drop table ESCM_CNTRT_PRVNTV_MANTN_LEGACY_3 ;
+drop table ESCM_CONT_MAINT_GROUPS_LEGACY_3; 
+drop table ESCM_LEGACY_CONSULT_CONTRACT_IMPORT ;
+drop table ESCM_LEGACY_MANTENENCE_CONTRACT_IMPORT ;
+drop table ESCM_LEGACY_PREVENTIVE_CONTRACT_IMPORT ;
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORT; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDT; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDT34567; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDT34567890; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDT3456789012; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDT34567890123; 
+drop table ESCM_LEGACY_PREVENTIVE_NOT_LOADED_CONTRACT_IMPORTSDTDRYDRYDRYDT; 
+drop table ESCM_TANFEETH_CNTRCTS_RIGHT_VALUES; 
+drop table ESCM_TANFEETH_CONTRACTS_LEGACY_3; 
+drop table LEGACYREFERENCEFORDUPLICATELEGACY_11_12 ;
+
+drop function ESCM_UPDATE_REMAINING_ALL_AMOUNT_CONTRACTS();
+--drop function ESCM_PO_MULTOSINGLELINEVALIDATION();
+drop function ESCM_INSERTMISSINGVERSIONINLEGACY();;
+drop function ESCM_UPDATE_LEGACYPAIDIN_ORDER_LINE();
+
+
+
+
+select decode(em_escm_unitprice, 'base64') ::character varying from m_requisitionline where m_requisitionline_id='42063F2EE22C43D5BD00EE9827AC5D26'
+
+1015621
+
+
+update escm_proposalmgmt_line set net_unitprice = line_total/movementqty
+where net_unitprice=0 and movementqty!=0 and escm_proposalmgmt_id in ('345526CEBAFB417D9FDBDDE6EEB41F06','2A721559935744D9AD26502267F8ACD8','362ACFA6F6524BF5AE0C95FA4324E02E')
+
+
+
+
+	1.	Showing informative message
+	2.	Notify popup in purchase re
+	3.	Enable navigation for bg in oEE
+	4.	Remove comma in bg internal no
+	5.	Export alignment should be based on session language
+
+select 
+org.name as orgname,
+req.documentno as documentno,
+req.em_escm_spec_no as specno,
+preparer.name as preparername,
+dept.name as department,
+req.em_escm_total as total,
+finyear.description as yearname,
+req.em_escm_processtype as processtype,
+req.em_escm_doc_status as status,
+req.em_escm_issecured as secured,
+req.em_escm_cancelledby as cancelledname,
+req.em_escm_cancel_date as cancel_date,
+req.description as descriptionPR,
+req.em_escm_cancel_reason as cancelReason,
+req.EM_Escm_Transaction_Date as transactiondate,
+req.em_escm_pr_return as isreturn,
+bid.bidno as bidno,
+bid.bidname as bidname,
+bid.bidstatus as bidstatus,
+bidpreparer.name as bidname,
+bidyear.description as bidyear,
+bid.bidtype as bidtype,
+bid.bidcreationdate as bidcreationdate
+from 
+m_requisition req
+join ad_org org on org.ad_org_id = req.ad_org_Id
+join ad_user preparer on preparer.ad_user_id = req.ad_user_id
+join ad_org dept on dept.ad_org_id = req.em_escm_department_id
+join c_year finyear on req.em_escm_financial_year = finyear.c_year_id
+join ad_user cancelleduser on cancelleduser.ad_user_id = req.em_escm_cancelledby
+join Escm_Beneficiary_V bendept on bendept.Escm_Beneficiary_V_id = req.EM_Escm_Benfdept
+left join ESCM_DefLookups_TypeLn lookup on lookup.ESCM_DefLookups_TypeLn_id = req.EM_Escm_Contact_Type
+left join (select prhist.escm_purchasereq_app_hist_id,prhist.m_requisition_id from escm_purchasereq_app_hist prhist
+join m_requisition req on req.m_requisition_id = prhist.m_requisition_id
+join (select max(prhist.created) as prcreated, prhist.m_requisition_id from escm_purchasereq_app_hist prhist
+join m_requisition req on req.m_requisition_id = prhist.m_requisition_id
+group by prhist.m_requisition_id) as prmaxdate on prmaxdate.prcreated = prhist.created
+where req.em_escm_doc_status ='ESCM_IP') approval on approval.m_requisition_id = req.m_requisition_id 
+left join escm_bidrequistionline_v bid on bid.m_requisition_id = req.m_requisition_id
+left join ad_user bidpreparer on bidpreparer.ad_user_id =bid.bidpreparername
+left join c_year bidyear on bidyear.c_year_id = bid.finanyear
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+
+Service in spring cloud:
+
+?
+
+
+
+Ports:
+?
+
+
+
+Configure datasource in spring boot:
+
+spring.datasource.username=root
+spring.datasource.password=Satish265613@
+spring.datasource.url=jdbc:mysql://localhost:3306/products?createDatabaseIfNotExist=true
+server.port=8085 
+
+
+
+
+
+
+
+Service Registration and discovery: EUREKA
+
+
+	1.	Server discovery
+	2.	Client Registration
+
+
+Dependency for server:
+
+1.Eureka server
+
+@EnableEurekaServer in the springbootapplication start up file
+
+These properties is for prevent registering the application again with eureka server: since it is a server not client: 
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+server.port=8761
+
+
+1.Eureka client:
+
+@EnableEurekaClient
+
+Set these properties:
+spring.application.name = product-service
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+
+
+
+FIEGNCLIENT
+
+@EnableFeignClients
+
+Create a interface with @FeignClients annotations
+Give service name appearing in the eureka server inside the annotations
+
+
+Create getmapping method inside the interface

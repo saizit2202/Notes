@@ -1,0 +1,5 @@
+	1.	Load data from excel sheet in to this table
+	2.	Take backup of this table
+	3.	Create temp table in staging or live
+	4.	Restore the backup
+	5.	Insert into main table from temp table using select

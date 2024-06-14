@@ -1,0 +1,29 @@
+"bulkHoldDTO":null,
+"bulkPenaltyDTO":[
+
+],
+"lineDTO":[
+{
+"amountOrdered":null,
+"amountPending":null,
+"amountReleased":null,
+"amountToRelease":null,
+"holdDTO":null,
+"itemDescription":"New",
+"itemNo":"",
+"poLineId":null,
+"qtyOrdered":1,
+"qtyPending":1,
+"qtyToRelease":10,
+"unitPrice":1.0000
+}
+],
+"orderId":null,
+"poContractNo":"1015602",
+"receiveDate":"23-06-1441",
+"receivedBy":"Openbravo ",
+"receiveType":"Quantity",
+"requestNo":"20_1302_010_00011"
+}')
+
+select * from c_order where c_order_id='0840DFF7BA7246E28AD71344CEDC1A26'

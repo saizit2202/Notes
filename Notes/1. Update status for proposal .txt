@@ -1,0 +1,9 @@
+2. Validation while submitting if validate bid qty check is checked
+3. Once partial awarding is done restrict reactivating the PEE
+4. Update awarded amount in Proposal header
+5. Do changes in approval for encumbrance in Original proposal approval
+
+
+
+
+Ask budgetintial to divya

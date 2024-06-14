@@ -1,0 +1,52 @@
+Linux Commands
+
+Pwd - Present working directory
+Cd -  Change directory
+cd ~ - switch to default directory (example: home/qualian)
+cd {absolute path}  - /home/qualian/Downloads
+cd {relative path}  - cd Downloads
+ls - list directories, folders, files
+Man {commands} - give details about the commands
+cd .. - back to one step in the folder structure
+cd 'My books' or cd "My books" or cd 'My\ books'  - To goto the folder which has space
+
+
+
+CAT command:
+
+To display the content of the file we need to use the cat commans
+
+1. cat filename
+2. cat file1 file 2 - merge two file content and it will show
+3. cat -b file - display the lineno for all the lines except blank
+4. cat -n file - display the lineno for all the lines
+5. cat -s file - remove the multiple blank lines and show it as single blank lines
+6. cat -E file - show the end of the lines using $ symbol
+
+Redirection >
+
+To write the text from one file or text from terminal to other files we need to use - >
+
+cat file.txt > file2.txt
+cat > file.txt  - enter text which we need to save it to file.txt
+
+To append to existing file use (>>)
+
+cat >> file.txt 
+cat file.txt >> file2.txt
+
+
+To copy two files we need to do
+
+cat file.txt file1.txt > file3.txt
+
+
+MKDIR:
+
+
+To create a directory we will use this commans
+
+mkdir test -> it will create test folder
+mkdir -p test/exams -> it will create both test and exams directory structure if not exist. in case if we miss -p it will throw error
+mkdis test/{a,b,c} -> it will create a,b,c folder inside the test mutiple folder creation
+

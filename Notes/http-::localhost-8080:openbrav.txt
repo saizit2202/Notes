@@ -1,0 +1,44 @@
+<div><br></div>
+<div>AROA MARTIN GARCIA1 -AMARTINGARCIA</div>
+<div><br></div>
+<div>ELANDIER - ELYSE LANDIER</div>
+<div>UserID=ÔC782BECD91DB439D9862FD9473CAD8CFÕ</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>AHELMSTETTER</div>
+<div>AMARTINGARCIA</div>
+<div><br></div>
+<div>2 IN 1 CHAUFFEUSE NOIRE</div>
+<div>ARIANE POUBELLE 6L NOIR</div>
+<div>CONFORT+ PROTEGE MAT. 90X190</div>
+<div><br></div>
+<div>ANNE MERINO</div>
+<div><br></div>
+<div>Reservation:</div>
+<div><br></div>
+<div>The credentials to connect to the vpn are the following:</div>
+<div>host = <u>sslvpn.butdsi.net</u><br></div>
+<div>port = 10443</div>
+<div>username = vvillar</div>
+<div>password = 3x58mwDQ<br></div>
+<div><br></div>
+<div><br></div>
+<div>  private boolean ISONLINE_TEST = false;</div>
+<div><br></div>
+<div><br></div>
+<div>  @Override</div>
+<div>  public void afterWithReload() {</div>
+<div>    // do nothing</div>
+<div>  }</div>
+<div>60000</div>
+<div>3752</div>
+<div>58124</div>
+<div><br></div>
+<div>  protected boolean ISMULTISERVER_TEST = false;</div>
+<div><br></div>
+<div>    super.ISMULTISERVER_TEST = true;</div>
+<div><br></div>
+<div>    if (ISONLINE_TEST && !ISMULTISERVER_TEST) {</div>
+<div><br></div>
+<div><br></div>

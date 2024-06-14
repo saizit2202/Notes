@@ -1,0 +1,12 @@
+
+What is Testing ?
+
+What is Junit Testing?
+
+Manual testing and automated testing
+
+Junit 5
+
+Annotations
+
+

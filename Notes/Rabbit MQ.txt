@@ -1,0 +1,29 @@
+
+	1.	Direct
+	2.	Fanout
+	3.	Topic
+	4.	Headers
+
+
+Start command : /usr/local/sbin/rabbitmq-server
+
+Installation:
+1.brew update
+2.brew install rabbitmq
+
+
+http://localhost:15672 
+
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.Channel;
+
+Publish
+Channel.basicpublish -> queue name , message
+
+Consume
+Channel.basicconsume -> queue name, deliverycallback
+
+
+
+

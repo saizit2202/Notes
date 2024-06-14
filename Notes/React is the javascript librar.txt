@@ -1,0 +1,79 @@
+<div><br></div>
+<div><br></div>
+<div><h1>Components:</h1></div>
+<div><br></div>
+<ul>
+<li>Reusablity</li>
+<li>Separate pf conversation</li>
+<li>It is declarative approach </li>
+<li>Building own html element</li>
+</ul>
+<div><br></div>
+<div><br></div>
+<div>ES6:</div>
+<div> </div>
+<ol>
+<li>Let and const:</li>
+</ol>
+<div>      </div>
+<div>             These are same as var. </div>
+<div>              const -> These are like final var cannot be changed. This is having global scope.</div>
+<div>              Let -> These values can be changed and they have block scope. </div>
+<div><br></div>
+<div>   2.  Arrow function:</div>
+<div><br></div>
+<div>              These are new way to declare the function</div>
+<div><br></div>
+<div>             Old: </div>
+<div><br></div>
+<div>              hello = function() {</div>
+<div>               return "Hello World!";</div>
+<div>              }</div>
+<div><br></div>
+<div>              New : </div>
+<div><br></div>
+<div>	      	hello = () => {</div>
+<div>		  return "Hello World!";</div>
+<div>		}</div>
+<div><br></div>
+<div>           hello = () => "Hello World!";  ->  If the function has only one statement, and the statement returns a value, you can remove the brackets <i>and</i> the return keyword:</div>
+<div><br></div>
+<div>	   hello = (val) => "Hello " + val; -> With parameter  </div>
+<div><br></div>
+<div>	   hello = val => "Hello " + val;  -> with only one parameter, we can remove the bracket</div>
+<div><br></div>
+<div>        Using “This” inside the arrow function will represent the owner of the function.</div>
+<div><br></div>
+<div><br></div>
+<div>Create new project</div>
+<div><br></div>
+<div>npx create-react-app my-app</div>
+<div><br></div>
+<div>Start -> npm start in project location</div>
+<div><br></div>
+<div><br></div>
+<div>Components</div>
+<div>JSX</div>
+<div>Render</div>
+<div>Props</div>
+<div>State</div>
+<div>Handling Events</div>
+<div>Conditional Rendering</div>
+<div>Lists and Keys</div>
+<div>Forms</div>
+<div>Lifting State up</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Components</div>
+<div> </div>
+<div>Two types:</div>
+<div><br></div>
+<div>Class component</div>
+<div>Function component</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Class component - This must extend React.component and implement Render method where it will return JSX.</div>
+<div><br></div>
+<div>Function component -  This must return JSX </div>

@@ -1,0 +1,53 @@
+<div><br></div>
+<div>Setting port:</div>
+<div>     server.<b>port</b>=7788.</div>
+<div><br></div>
+<div>Default user: user</div>
+<div><br></div>
+<div>spring.security.user.name=sergey</div>
+<div>spring.security.user.password=sergey</div>
+<div><br></div>
+<div>?<br></div>
+<div><br></div>
+<div><br></div>
+<div>?<br></div>
+<div><br></div>
+<div><br></div>
+<div>WebSecurityConfigurerAdapter - first entry point  during login </div>
+<div>WebSecurityConfigurerAdapter is abstract class</div>
+<div><br></div>
+<div>Interface Names:</div>
+<ol>
+<li>Userdetails</li>
+<li>UserDetailsService</li>
+<li>UserDetailManager</li>
+</ol>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>configure(HttpSecurity http):</div>
+<div><b>protected</b> <b>void</b> configure(HttpSecurity http) <b>throws</b> Exception {</div>
+<div>		http.authorizeRequests((requests) -> requests.anyRequest().denyAll());</div>
+<div>		http.formLogin();</div>
+<div>		http.httpBasic();</div>
+<div>	}</div>
+<div><br></div>
+<div><br></div>
+<div>configure(AuthenticationManagerBuilder auth)</div>
+<div>@Override</div>
+<div>	<b>protected</b> <b>void</b> configure(AuthenticationManagerBuilder  auth) <b>throws</b> Exception {</div>
+<div>		auth.inMemoryAuthentication().withUser("12").password(<u>password);</u>		</div>
+<div>	}</div>
+<div><br></div>
+<div><br></div>
+<div>InMemoryUserDetailsManager - You create static users , roles and password using this implementatio</div>
+<div>JDBCUserDetailsManager - You can use inbuilt database with table USER to authentication.</div>
+<div>LdapUserDetailsManager - you can use LDAP for the authentication</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><b>Interface PasswordEncoder</b><br></div>
+<div>?<br></div>
+<div><br></div>
+<div>Implementation class:</div>
+<div>AbstractPasswordEncoder,ÊBCryptPasswordEncoder,ÊDelegatingPasswordEncoder,ÊLdapShaPasswordEncoder,ÊMd4PasswordEncoder,ÊMessageDigestPasswordEncoder,ÊNoOpPasswordEncoder,ÊPbkdf2PasswordEncoder,ÊSCryptPasswordEncoder,ÊStandardPasswordEncoder<br></div>

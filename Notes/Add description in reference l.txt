@@ -1,0 +1,3 @@
+Fix code for public tender in reference lookup
+
+update escm_deflookups_typeln set prcode='PB',bidprocode='TR' where escm_deflookups_typeln_id='30760306C1CE41B394FC81659AD456DD''

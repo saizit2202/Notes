@@ -1,0 +1,10 @@
+
+1. VariablesSecureApp.
+
+public void setAttachments(String AD_Tab_ID, Attachment data) {
+setSessionObject(AD_Tab_ID + "|attachments", data);
+}
+
+public void removeAttachments(String AD_Tab_ID) {
+removeSessionValue(AD_Tab_ID + "|attachments");
+}

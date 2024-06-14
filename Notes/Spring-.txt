@@ -1,0 +1,17 @@
+
+Dependency injection
+IOC
+
+Constructor injection
+Setter Injection
+Property Injection
+
+Service, component
+
+Qualifier
+
+Primary
+
+Profile 
+@PostConstruct
+@PreDestroy

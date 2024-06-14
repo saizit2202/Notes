@@ -1,0 +1,33 @@
+
+For SQL
+
+psql -h localhost -U tad -d productionaprl9 -f /Users/qualian/Download/elmbk
+
+
+For DMP
+
+pg_restore --localhost --5432 -- tad --elmfrwd -- tad --no-password --verbose elmbk
+
+
+
+psql -U -d -1 -f .sql
+
+
+31 server:
+
+969 su postgres
+970 pg_dump elm > /var/lib/pgsql/backups/elm_1_12_2018.bak
+971 su postgres
+972 cd /var/lib/pgsql/backups/
+973 ls -lrt
+974 tar -czvf elm.tar.gz /var/lib/pgsql/backups/elm_1_08_2018.bak 
+975 ls -lrt
+976 rm -rf elm.tar.gz 
+977 tar -czvf elm.tar.gz /var/lib/pgsql/backups/elm_1_12_2018.bak 
+978 cp elm.tar.gz /opt/ELM/dbbackup/
+979 cd /opt/ELM/dbbackup/
+
+
+create table dual as (select 'X'::text as dummy)
+
+psql -h localhost -U tad -d openbravotest -f oboct1.bak

@@ -1,0 +1,15 @@
+
+
+
+
+
+pg_dump -d elmfrwdbk -t efin_temp >temp.sql
+
+
+insert into efin_temp1 select * from efin_temp1
+
+
+pg_restore -U postgres --data-only -d target-db-name -t table_name /directory/path/dump-name.dump
+
+
+pg_restore -U tad --data-only -d mailstagedb -t escm_mms_integrationinput mms.sql 

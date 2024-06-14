@@ -1,0 +1,38 @@
+Git commands
+
+Git init <project name>
+
+Git init
+
+
+Git status -- check outstanding changes in the stage area or working directory
+
+Git add -- will move from working directory to stage area
+
+git rm --cached <file>..." to unstage
+
+git commit -m 'First commit'
+
+git remote add origin https://github.com/saiz2202/gitdemo.git -- add remote repository to newly created repo=
+
+git remote -v  -> check url
+
+git fetch -> sync the remote repository with the local 
+
+git log -> get the all the commit details of the repo
+
+git show 50c1 => show the details of commit details
+
+git ls-files
+
+git push -f origin master => pushing all the contents to repo force fully
+
+git push  origin master => pushing the changes to repo
+
+git restore <file>... to discard changes in working directory
+
+git restore --staged <file>... to unstage
+
+git branch --> list the branches
+
+git branch branch1 --> Create branch 

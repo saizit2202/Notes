@@ -1,0 +1,65 @@
+<div>update efin_budgetinquiry set funds_available = funds_available + 0.00003</div>
+<div>where efin_budgetinquiry_id ='5A1FDFBCF174429EBBE5D0203BB0F5EC';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set funds_available = funds_available + 0.00003</div>
+<div>where efin_budgetinquiry_id ='C04B0AD1CBBF4557A0F5F712910F4A3A';</div>
+<div><br></div>
+<div><br></div>
+<div>Ñ Account 414500116</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(7043236.2-funds_available), rev_amount=rev_amount+(7043236.2-funds_available),disdec_amt=disdec_amt+(7043236.2-funds_available)</div>
+<div>where efin_budgetinquiry_id ='174836187563403E8166059D5EDDC1A5';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(7043236.2-funds_available)</div>
+<div>where efin_budgetinquiry_id ='7260EF7174984A7AA9377C43E3D4E240';</div>
+<div><br></div>
+<div>Ñ Account 475000300</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(30501582.7-funds_available), </div>
+<div>rev_amount=rev_amount+(30501582.7-funds_available),disdec_amt=disdec_amt+(30501582.7-funds_available)</div>
+<div>where efin_budgetinquiry_id ='DE82F8F9B2AB40D5AB6302B8E7E49B73';</div>
+<div><br></div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(30501582.7-funds_available)</div>
+<div>where efin_budgetinquiry_id ='814CB8ED0D844B3E8449CB2070868EA2';</div>
+<div><br></div>
+<div><br></div>
+<div>Ñ Account 211131</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(252596.18), </div>
+<div>rev_amount=rev_amount+(252596.18),disdec_amt=disdec_amt+(252596.18)</div>
+<div>where efin_budgetinquiry_id ='E007C7BB24004645B6F4B1544F8EE9BC';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(252596.18)</div>
+<div>where efin_budgetinquiry_id ='F02ABC8030974ABEAD895FC412961A04';</div>
+<div><br></div>
+<div><br></div>
+<div>Ñ Account 221331</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(6016.99), </div>
+<div>rev_amount=rev_amount+(6016.99),disdec_amt=disdec_amt+(6016.99)</div>
+<div>where efin_budgetinquiry_id ='37C4348858F84B2CA232108236F3C4C5';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(6016.99)</div>
+<div>where efin_budgetinquiry_id ='7C6ACDBF1A804FDE9DFE6E6DFA4E8417';</div>
+<div><br></div>
+<div><br></div>
+<div>Ñ Account 221211</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(3935.55), </div>
+<div>rev_amount=rev_amount+(3935.55),disdec_amt=disdec_amt+(3935.55)</div>
+<div>where efin_budgetinquiry_id ='F686F3ECDF3244E2854FAECCF86F8DEF';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(3935.55)</div>
+<div>where efin_budgetinquiry_id ='90F0B1E49A214A80A7CD93BD323381CA';</div>
+<div><br></div>
+<div><br></div>
+<div>Ñ Account 211134</div>
+<div><br></div>
+<div>update efin_budgetinquiry set revinc_amt=revinc_amt+(787.26), </div>
+<div>rev_amount=rev_amount+(787.26),disdec_amt=disdec_amt+(787.26)</div>
+<div>where efin_budgetinquiry_id ='65E733BE8284496BAB9FCC06F100F476';</div>
+<div><br></div>
+<div>update efin_budgetinquiry set disinc_amt=disinc_amt+(787.26)</div>
+<div>where efin_budgetinquiry_id ='F25A7CACE6194F61B9DB24EB7036BA00';</div>
+<div><br></div>

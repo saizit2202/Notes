@@ -1,0 +1,52 @@
+IP Address: 188.166.150.144
+Username: root
+Password: 26b69abb62e64093
+
+new pass - sapmer123
+
+postgres pass - sapmer$#
+
+
+new server pass : s@pmeR$# 
+ssh root@46.101.123.167
+
+tomcat permission change ::
+
+chown tomcat6 -R *
+chgrp tomcat6 -R *
+
+chown -R tomcat6 openbravo/
+
+chgrp -R tomcat6 openbravo/
+
+ssh root@46.101.123.167 -L 5932:localhost:5432
+
+ssh -L 5932:localhost:5432 root@46.101.123.167
+
+
+dbbackup restore : "psql -d sapmerdemo -U tad -h localhost -f openbravo_2017-01-09-00-20-01.sql"
+
+
+
+Restore in server:::
+decryption in server
+openssl smime -decrypt -in 20180913_121001_openbravo.sql.bz2.enc -binary -inform DEM -inkey /var/lib/postgresql/backup_key.pem | bzcat > 20180913_121001_openbravo.sql
+
+
+Gzip file to reduce size
+$ gzip 20180913_121001_openbravo.sql
+
+
+
+copy file from server to local
+
+scp root@46.101.123.167://var/lib/postgresql/backup/20180731_002001_openbravo.sql.gz qualian@192.168.1.124://Users/qualian/Downloads
+
+copy file from server to Sathish machine 
+
+
+
+/var/lib/tomcat6/webapps/openbravo/src-loc/design/com/qualiantech/sapmer/ad_reports
+
+
+

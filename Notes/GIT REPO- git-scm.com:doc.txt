@@ -1,0 +1,57 @@
+
+GIT init
+git add --all
+git commit -m 'INTIAL COMMIT'
+git remote add origin https://github.com/saiz22/Springlearning.git
+
+
+git config user.name 
+
+git config --global user.name 'Sathish Kumar
+git config --global user.email 'satishjkk@gmail.com'
+
+
+
+Git log - history
+Git status - Current status of repo 
+Git init - will initiate the new repo
+Git add - add files in staging area
+Git commit - will add the files in the git repo(Inside the .git repo)
+Git restore - to revert the changes done in any file
+Git add . - add all files at once to stage area
+Git commit -amend - to make any changes in the commit (Only in the last commit)
+Git commit -a -m - will all the changes in stage area(only modified files) and commit it
+
+
+Default branch is Master
+
+Git branch - Create a new branch name
+Git branch - to list all the branches
+Git switch - to switch between the branch
+Git switch -c - It will create and switch the branch
+Git branch -D - deleting the branch. This command should be done in another branch
+
+Switch to branch which you want to merge with
+Git Merge 
+
+Git Diff - will show the diff between staging area and working directory
+Git Diff head - will show the diff since your last commit
+Git Diff - - staged
+
+Git Diff branch1 ..branch2 - This will show the difference between two branches
+Git Diff commit..commit1 - This will show the difference between two commit
+
+
+Git Stash - this will save the current changes instead of committing it in the branch. This will be remove the current changes in non staging and staging area.
+Git Stash popup - this will put the changes back to the original state which is stashed
+
+
+Git Remote add origin url - add this url as remote named origin in the repo
+
+Git remote rename - renaming the remote name
+Git remote remove - deleting the remote 
+
+Git push remotename branchname
+
+Git push remotename branchname:remotebranch
+

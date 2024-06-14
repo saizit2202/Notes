@@ -1,0 +1,41 @@
+	1.	Bank Guarantee Header:
+
+Temporary table name: bgheaderscript CSV file name : BGDataLoadHeader.csv
+Function file name: BGHeader.sql
+Table backup Name: bgheaderscript.backup
+Valid records : 2045(Excluding the bg category and contact name) Things to do: 
+Update the valid contact name in bgheaderscript before executing the script
+Add all the contract category given in the Excel in reference lookup
+
+	1.	Bank Guarantee Line:
+
+Temporary table name: bg_lines CSV file name : BGDataLoadLines.csv
+Function file name: BGLines.sql
+Table backup Name: bglines.backup
+Valid records : 2020(Joining with valid workbench which is created)
+Things to do: 
+
+Add all the foreign banks given in the Excel 
+
+	1.	Bank Guarantee Extension:
+
+Temporary table name: bgextensionscript CSV file name : BGDataLoadExtension.csv
+Function file name: BGExtension.sql
+Table backup Name: bgextensionscript.backup
+Valid records : 3497(Joining with valid Bank Guarantee Line which is created)
+4. Bank Guarantee Release::
+
+Temporary table name: bgreleasescript CSV file name : BGDataLoadRelease.csv
+Function file name: BGRelease.sql
+Table backup Name: bgreleasescript.backup
+Valid records : 550(Joining with valid Bank Guarantee Line which is created)
+
+5. Bank Guarantee Revision::
+
+Temporary table name: bgamtrevision CSV file name : BGDataLoadAmtRev.csv
+Function file name: amountRevi.sql
+Table backup Name: bgamtrevision.backup
+Valid records : 1185(Joining with valid Bank Guarantee Line which is created)
+
+
+

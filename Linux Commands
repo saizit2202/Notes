@@ -1,0 +1,64 @@
+Linux Commands:
+
+1. mv
+2. Cp
+3. cat /etc/os-release check the version info of os
+
+
+
+Grep
+
+Grep word filename
+grep -ir word filename
+grep -ir word < filename
+
+search with exclude
+
+grep v word filename
+
+
+More and less commands:
+
+less filename
+more filename
+
+
+Head and tail command:
+Head line filename
+
+tail line filename
+to keep on printing the changes use
+tail linef filename
+
+
+
+SED:
+
+To preview the result:
+sed 's/wordtosearch/wordtoreplace/g' filename
+sed 's/wordtosearch/wordtoreplace/g' * -   all the files
+
+To make changes in the files:
+sed -i 's/wordtosearch/wordtoreplace/g' filename
+
+
+Use > to give input to other files or commands
+
+
+WC:
+
+wc -l - to count the lines in the files
+
+
+to count the number of files in the directory
+
+ls | wc -l
+
+
+FIND:
+
+find path -name filename
+
+
+
+

@@ -1,0 +1,4 @@
+	1.	Core changes for hidden by default - QueryListUtils.java 
+	2.	Check Stepsize (calculate dynamically) - temporary fix
+	3.	PR status and Bid cycle status query export and push
+	4.	 

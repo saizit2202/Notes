@@ -1,0 +1,97 @@
+<ol>
+<li>Spring basics</li>
+<li>Hibernate</li>
+<li>WebServices</li>
+<li>Core Java</li>
+<li><br></li>
+</ol>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>7942</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Farid</div>
+<div>No</div>
+<div>Khalid</div>
+<div>omar	</div>
+<div>Ab/Ab</div>
+<div>001-001-86767676767-211111-01-001-000-000-000</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>delete from eut_next_role_line where eut_next_role_line_id in (select eut_next_role_line_id from eut_next_role role</div>
+<div>join  eut_next_role_line line on line.eut_next_role_id= role.eut_next_role_id</div>
+<div>where role.document_type in(EUT_101))</div>
+<div><br></div>
+<div><br></div>
+<div>597</div>
+<div>EUT_101 - ap invoice</div>
+<div>EUT_109</div>
+<div>EUT_110</div>
+<div>EUT_106. - gl journal</div>
+<div>EUT_124</div>
+<div>EUT_113 - rt</div>
+<div>EUT_105 - encumbrance</div>
+<div>EUT_108 - PO</div>
+<div>EUT_111 - Direct pR</div>
+<div>EUT_118 - PR Limited tender</div>
+<div><br></div>
+<div>?<br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>307 total</div>
+<div>  33 Ñ </div>
+<div>274</div>
+<div>?<br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Need to delete </div>
+<div><br></div>
+<ol>
+<li>13748. - deleted</li>
+<li>13805.  - deleted</li>
+</ol>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<ol>
+<li> 13742</li>
+<li> 13778</li>
+<li> 13741</li>
+<li> 13994</li>
+<li> 13745</li>
+<li> 13965 -  not loaded because do </li>
+<li> 14795</li>
+</ol>
+<div>  8.   14800</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>4380094</div>
+<div>415225</div>
+<div>401010</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>select c_invoice_post('4D832615B5EE4F3A9E532EA6C747B6E9','631B2E10161E4EB899B40B523D0BFC5B')</div>
+<div><br></div>
+<div>select c_invoice_post('F018AD7B119B41659514A137FB698516','9E749D6C770E485EA96A3E6D707B0D7D')</div>
+<div><br></div>
+<div>delete from efin_purchasein_app_hist where efin_purchasein_app_hist_id='82130DABE2F44B75A71BDEE099BCFF82'</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><b>Mohan S</b> <b>3:11 PM:</b><br></div>
+<div><b>Hom53946</b><br></div>
+<div><b>Mohan S</b> <b>3:12 PM:</b><br></div>
+<div><b><u>priyanka.r@qualiantech.com</u></b><br></div>

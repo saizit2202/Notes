@@ -1,0 +1,38 @@
+<div><br></div>
+<div>http://wiki.openbravo.com/wiki/Mobile_server_side_query_components<br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>GRP is a web based ERP solution implemented for the Ministry of</div>
+<div>Transport (KSA).</div>
+<div>GRP is responsible for handling all the financial activities such as</div>
+<div>Accounting, Payables and Cash Management, Receivables Management and</div>
+<div>Budgeting and Encumbering.</div>
+<div>GRP is also responsible for Supply Chain Management and Inventory</div>
+<div>Management system.</div>
+<div>GRP is also designed to handle HR affairs such as defining the Organization</div>
+<div>hierarchy, Employee management, Employee attendance and vacation</div>
+<div>management, Training and Scholarship management, Civil Payroll,</div>
+<div>Allowance and Rewards management and defining and maintaining the</div>
+<div>workflow.</div>
+<div>GRP is also integrated with external systems such as SADAD and Microsoft</div>
+<div>Active Directory.</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><b><h2>HttpBaseServlet</h2></b></div>
+<div><u>Base class</u> that extends from Sun's <u>HttpServlet</u> and implements <u>ConnectionProvider</u> interface. It contains all the methods to interact with the database connection pool. This class is part of Openbravo's core. Your servlet can extend from this class if you don't want authentication and authorization.</div>
+<div><b><h2>HttpSecureAppServlet</h2></b></div>
+<div>This <u>class</u> extends from HttpBaseServlet. The security of the application is implemented at this level. This class also contains common artifacts for things such as: render a JasperReport, Autosave implementation, Navigation history, etc.</div>
+<div><b><h2>MyCustomServlet</h2></b></div>
+<div>This is an example servlet class. All your servlets should extend from <u>HttpSecureAppServlet</u> if you want authentication and authorization mechanisms.</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>

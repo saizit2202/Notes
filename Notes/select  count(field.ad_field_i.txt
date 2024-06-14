@@ -1,0 +1,74 @@
+join ad_tab tab on tab.ad_window_id =win.ad_window_id
+join ad_field field on field.ad_tab_id = tab.ad_tab_id
+where 
+win.ad_module_id in ('C23E598B7EE740A3AFACEF68F0F7C263','0B1224F8F87F4ED68E04C68BC423BC3A','B0A58AE7D0994414B2B315E0A7087044','E610580A91734A8EB5A88BD4AC9E19FB','C23E598B7EE740A3AFACEF68F0F7C263')
+and win.isactive ='Y' and windowtype !='OBUIAPP_PickAndExecute'
+and win.ad_window_id not in ('52EDC912FDC043ACA91A499B09D28D41','C3A94C357D8E4A59905A97F114066C4E','5942FD20477E4B3F90EE28D9EC175981','05BB96F5D29742BB805A25157B1787CF')
+and field.isdisplayed='Y'
+and tab.isactive ='Y'
+group by win.ad_window_id,win.name,tab.ad_tab_id,tab.name
+order by win.name
+
+
+
+
+
+select count(field.ad_field_id) from ad_window win
+join ad_tab tab on tab.ad_window_id =win.ad_window_id
+join ad_field field on field.ad_tab_id = tab.ad_tab_id
+where 
+win.isactive ='Y' and windowtype !='OBUIAPP_PickAndExecute'
+and field.isdisplayed='Y'
+and tab.isactive ='Y'
+and win.name in(
+'Business Partner',
+'Product',
+'Account Tree',
+'Payment Out',
+'Purchase Invoice',
+'Order to Receive',
+'Payment In',
+'Product Category',
+'User',
+'Role',
+'Purchase Requisition',
+'Warehouse and Storage Bins',
+'Financial Account',
+'Payment Method',
+'General Ledger Configuration',
+'Simple G/L Journal',
+'Fiscal Calendar',
+'Budget Type',
+'PO Receipt',
+'Payment Term',
+'Preference',
+'Country and Region',
+'Currency',
+'Organization Type'
+)
+group by win.ad_window_id,win.name,tab.ad_tab_id,tab.name
+order by win.name
+
+
+
+select win.name as windowname,
+tab.name as tabname,
+adtable.name as tablename,
+field.name as fieldname,
+col.columnname as columnname,
+col.help as helpandcomment
+from ad_window win
+join ad_tab tab on tab.ad_window_id =win.ad_window_id
+join ad_table adtable on adtable.ad_table_id = tab.ad_table_id
+join ad_field field on field.ad_tab_id = tab.ad_tab_id
+join ad_column col on col.ad_column_id = field.ad_column_id
+where 
+win.ad_window_id ='E509200618424FD099BAB1D4B34F96B8'
+and field.isdisplayed='Y'
+and tab.isactive ='Y'
+and field.isactive ='Y'
+and col.isactive ='Y' 
+group by win.ad_window_id,win.name,tab.ad_tab_id,tab.name, field.name,col.columnname,col.help,adtable.name
+order by win.name
+
+

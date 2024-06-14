@@ -1,0 +1,36 @@
+Vagrant commands:
+
+1. vagrant init nameofos - Create file vagrantfile which contains all the configurationn related to the OS
+2. vagrant up - start the VM
+3. vagrant halt - Stop the VM
+4. vagrant destroy - Remove the OS
+5. Vagrant ssh - log in to the VM (password- vagrant)
+6. Vagrant suspend - pause the VM and save the state
+7. Vagrant resume - resume the VM
+8. vagrant reload - shutdown and restart the VM
+9. vagrant box list - list of boxes present in the local
+
+
+
+-- Adding user
+
+useradd username
+passwd username
+
+enter the password
+
+
+
+-- disk size
+
+fdisk -l
+
+
+
+Change authentication in /etc/ssh/sshd_config file
+
+change passwordauthentication to yes
+
+service ssh restart
+
+

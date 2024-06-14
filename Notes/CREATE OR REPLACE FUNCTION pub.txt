@@ -1,0 +1,60 @@
+)
+RETURNS void
+LANGUAGE 'plpgsql'
+COST 100
+VOLATILE 
+AS $BODY$
+DECLARE 
+v_nextseq numeric;
+cur_bgheader RECORD;
+v_bgtype character varying(100);
+v_doctype character varying(100);
+v_year_id character varying(32);
+v_bidmgmtId character varying(32);
+v_vendername character varying(32);
+v_venderadd character varying(32);
+v_currencyId character varying(32);
+v_bgcategory character varying(32);
+v_proposalmgmtId character varying(32);
+v_proposalattrId character varying(32);
+v_contactname character varying(32);
+v_orderId character varying(32);
+v_legacycontractId character varying(32);
+v_transactiondateh character varying(100);
+v_documentno character varying(100);
+v_ResultStr character varying(2000);
+
+BEGIN
+select currentnext into v_nextseq from Escm_Sequence where Escm_Sequence_id ='AF97CC3D45FA49C3980289C3D9BCBA05';
+raise notice '%seq', v_nextseq;
+
+-- get all records data from temporary table
+FOR cur_bgheader in (select id,replace(bginternalno,',','') as bginternalno,substring(finyear from 1 for 4)||'/'||substring(finyear from 5 for 8) as finyear,doctype,docNo,REPLACE(coalesce(docamount,'0'),',','') as docamount ,REPLACE(coalesce(totalbgamount,'0'),',','') as totalbgamount ,bidno, bidname,vendorname,vendoradd,currency,bgtype,bgcategory,transactiondate,contactname,bgrate from bgheaderscript )
+LOOP
+
+select c_year_id into v_year_id from c_year where year = cur_bgheader.finyear; 
+--select value into v_doctype from ad_ref_list where name =cur_bgheader.doctype and ad_reference_id='5E8D3D9F4B4F49B29A50DCA2EF8CC12E';
+select escm_bidmgmt_id into v_bidmgmtId from escm_bidmgmt where bidno = cur_bgheader.bidno;
+select c_bpartner_id into v_vendername from c_bpartner where name=cur_bgheader.vendorname;
+select c_bpartner_id into v_contactname from c_bpartner where name = cur_bgheader.contactname;
+select C_Bpartner_Location_ID into v_venderadd from C_Bpartner_Location where c_bpartner_id = v_vendername limit 1;
+select c_currency_id into v_currencyId from c_currency where iso_code =cur_bgheader.currency;
+--select value into v_bgtype from ad_ref_list where name =cur_bgheader.bgtype and ad_reference_id='1336B73B7AB444B7AFD8FDE56579391D';
+--select ls.value into v_bgtype from ad_ref_list ls join ad_ref_list_trl tr on tr.ad_ref_list_id = ls.ad_ref_list_id
+--where ad_reference_id='1336B73B7AB444B7AFD8FDE56579391D' and tr.name = cur_bgheader.bgtype;
+
+select ESCM_DefLookups_TypeLn_id into v_bgcategory from ESCM_DefLookups_TypeLn where name=cur_bgheader.bgcategory;
+
+if(v_vendername is null or v_year_id is null ) then
+update bgheaderscript set isvalid ='N' where id = cur_bgheader.id;
+ENd if;
+
+END LOOP;
+EXCEPTION WHEN OTHERS THEN
+v_ResultStr:= '@ERROR=' || SQLERRM;
+RAISE NOTICE '%',v_ResultStr ;
+-- ROLLBACK;
+
+RETURN; 
+END ; 
+$BODY$;

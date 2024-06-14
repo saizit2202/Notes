@@ -1,0 +1,92 @@
+<div>	efin_budget_manencumlines_id, ad_client_id, ad_org_id, isactive, created, createdby, updated, updatedby, </div>
+<div>    efin_budget_manencum_id, amount, funds_available, c_salesregion_id, c_elementvalue_id, c_campaign_id, c_project_id, </div>
+<div>    c_activity_id, user1_id, user2_id, line, description, checking_status, uniquecode, used_amount, remaining_amount, </div>
+<div>    efin_budgetlines_id, errorflag, revamount, linedesc, originalamount, refamount, failure_reason, c_validcombination_id, </div>
+<div>    c_bpartner_id, uniquecodename, app_amt, enc_decrease, enc_increase, rev_decrease, isauto, legacy_paid_amount, </div>
+<div>    legacy_unpaid_amt, system_increase, system_decrease, system_updated_amt, ismanualline) values (get_uuid,''FFEFCBB01E1F412886CB69CDBDD81774'',</div>
+<div>    ''0'',''Y'',now(),''100'',now(),''100'',</div>
+<div>    ''48D957F4C06F4A5EBE6AE1AA739714D8'','||</div>
+<div>    case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||', ''0'','''|| inv.c_salesregion_id||</div>
+<div>    ''','''||inv.account_id||</div>
+<div>    ''','''||inv.c_campaign_id||''','''||inv.c_project_id||</div>
+<div>    ''','''||inv.c_activity_id||''','''||inv.user1_id||''','''||inv.user2_id||''',10,null,null,'''||inv.em_efin_uniquecode ||''',0,'||</div>
+<div>     case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||',null,null,'||</div>
+<div>     case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||', null,0,0,null,'''||</div>
+<div>     inv.c_validcombination_id||''','''||inv.c_bpartner_id||''','''||inv.em_efin_uniquecodename||''',0,0,0,0,''Y'',0,0,0,0,0,''N''</div>
+<div>    ;)a'</div>
+<div>	,  </div>
+<div>inv.c_validcombination_id,inv.em_efin_uniquecode </div>
+<div>     , inv.c_salesregion_id, inv.c_validcombination_id, inv.c_campaign_id, inv.c_project_id, inv.account_id,inv.c_activity_id, inv.user1_id,</div>
+<div>     inv.user2_id</div>
+<div>     ,inv.c_bpartner_id, inv.em_efin_uniquecodename</div>
+<div>     , case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end as invamt </div>
+<div>     ,inq99.funds_available,inv.linenetamt, inq90.funds_available,inq99.efin_budgetinquiry_id ,inq90.efin_budgetinquiry_id</div>
+<div>from efin_budgetinquiry inq</div>
+<div>join efin_budgetinquiry inq99 on inq99.efin_budgetinquiry_id= inq.parent_id</div>
+<div>join efin_budgetinquiry inq90 on inq90.efin_budgetinquiry_id= inq99.parent_id</div>
+<div> join (</div>
+<div>select  sum(invln.linenetamt)  as linenetamt ,com.c_validcombination_id,com.em_efin_uniquecode </div>
+<div>     , com.c_salesregion_id, com.c_campaign_id, com.c_project_id, com.account_id,com.c_activity_id, com.user1_id,</div>
+<div>     com.user2_id</div>
+<div>     ,com.c_bpartner_id, com.em_efin_uniquecodename from c_invoice inv</div>
+<div>join c_doctype doc on doc.c_doctype_id = inv.c_doctypetarget_id</div>
+<div>join c_invoiceline invln on invln.c_invoice_id = inv.c_invoice_id</div>
+<div>left join c_validcombination com on com.c_validcombination_id	= invln.em_efin_c_validcombination_id</div>
+<div>where docstatus in ('CO','EFIN_WFA')  and em_efin_isreserved='N'   and com.c_campaign_id ='11F9670AC2DC499885BAE97494C595AD'</div>
+<div>     and com.em_efin_dimensiontype='E' </div>
+<div>   </div>
+<div>group by com.c_validcombination_id </div>
+<div>     order by com.em_efin_uniquecode ) </div>
+<div>inv on inv.c_validcombination_id= inq.c_validcombination_id</div>
+<div>and inv.em_efin_uniquecode= inq.uniquecode </div>
+<div>order by inv.em_efin_uniquecode</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>Ñ RDV Invoice</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div>select  inq.funds_available-inv.linenetamt  <0 , 'INSERT INTO public.efin_budget_manencumlines(</div>
+<div>	efin_budget_manencumlines_id, ad_client_id, ad_org_id, isactive, created, createdby, updated, updatedby, </div>
+<div>    efin_budget_manencum_id, amount, funds_available, c_salesregion_id, c_elementvalue_id, c_campaign_id, c_project_id, </div>
+<div>    c_activity_id, user1_id, user2_id, line, description, checking_status, uniquecode, used_amount, remaining_amount, </div>
+<div>    efin_budgetlines_id, errorflag, revamount, linedesc, originalamount, refamount, failure_reason, c_validcombination_id, </div>
+<div>    c_bpartner_id, uniquecodename, app_amt, enc_decrease, enc_increase, rev_decrease, isauto, legacy_paid_amount, </div>
+<div>    legacy_unpaid_amt, system_increase, system_decrease, system_updated_amt, ismanualline) values (get_uuid,''FFEFCBB01E1F412886CB69CDBDD81774'',</div>
+<div>    ''0'',''Y'',now(),''100'',now(),''100'',</div>
+<div>    ''48D957F4C06F4A5EBE6AE1AA739714D8'','||</div>
+<div>    case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||', ''0'','''|| inv.c_salesregion_id||</div>
+<div>    ''','''||inv.account_id||</div>
+<div>    ''','''||inv.c_campaign_id||''','''||inv.c_project_id||</div>
+<div>    ''','''||inv.c_activity_id||''','''||inv.user1_id||''','''||inv.user2_id||''',10,null,null,'''||inv.em_efin_uniquecode ||''',0,'||</div>
+<div>     case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||',null,null,'||</div>
+<div>     case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end||', null,0,0,null,'''||</div>
+<div>     inv.c_validcombination_id||''','''||inv.c_bpartner_id||''','''||inv.em_efin_uniquecodename||''',0,0,0,0,''Y'',0,0,0,0,0,''N''</div>
+<div>    ;)a'</div>
+<div>	,  </div>
+<div>inv.c_validcombination_id,inv.em_efin_uniquecode </div>
+<div>     , inv.c_salesregion_id, inv.c_validcombination_id, inv.c_campaign_id, inv.c_project_id, inv.account_id,inv.c_activity_id, inv.user1_id,</div>
+<div>     inv.user2_id</div>
+<div>     ,inv.c_bpartner_id, inv.em_efin_uniquecodename</div>
+<div>     , case when inq99.funds_available-inv.linenetamt  <0 then inq99.funds_available else inv.linenetamt  end as invamt </div>
+<div>     ,inq99.funds_available,inv.linenetamt, inq90.funds_available,inq99.efin_budgetinquiry_id ,inq90.efin_budgetinquiry_id</div>
+<div>from efin_budgetinquiry inq</div>
+<div>join efin_budgetinquiry inq99 on inq99.efin_budgetinquiry_id= inq.parent_id</div>
+<div>join efin_budgetinquiry inq90 on inq90.efin_budgetinquiry_id= inq99.parent_id</div>
+<div> join (</div>
+<div>select  sum(invln.linenetamt)  as linenetamt ,com.c_validcombination_id,com.em_efin_uniquecode </div>
+<div>     , com.c_salesregion_id, com.c_campaign_id, com.c_project_id, com.account_id,com.c_activity_id, com.user1_id,</div>
+<div>     com.user2_id</div>
+<div>     ,com.c_bpartner_id, com.em_efin_uniquecodename from c_invoice inv</div>
+<div>join c_doctype doc on doc.c_doctype_id = inv.c_doctypetarget_id</div>
+<div>join c_invoiceline invln on invln.c_invoice_id = inv.c_invoice_id</div>
+<div>left join c_validcombination com on com.em_efin_costcombination	= invln.em_efin_c_validcombination_id</div>
+<div>where docstatus in ('CO','EFIN_WFA')  and em_efin_isreserved='N'   </div>
+<div>     and com.em_efin_dimensiontype='E' </div>
+<div>   </div>
+<div>group by com.c_validcombination_id </div>
+<div>     order by com.em_efin_uniquecode ) </div>
+<div>inv on inv.c_validcombination_id= inq.c_validcombination_id</div>
+<div>and inv.em_efin_uniquecode= inq.uniquecode </div>
+<div>order by inv.em_efin_uniquecode</div>

@@ -1,0 +1,7 @@
+
+	1.	157 - Cost invoice
+	2.	169 - Funds invoice
+	3.	1 - UnKnown invoice
+
+
+

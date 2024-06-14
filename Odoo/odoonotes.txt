@@ -1,0 +1,106 @@
+Installation 
+
+
+Git:
+
+git clone https://github.com/odoo/odoo.git -b 17.0 --depth=1
+
+
+Install python latest
+Install PIP3
+
+
+pip install -r requirements.txt
+If anything is failed, remove the  dependencies and then try or else try install from terminal
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Create odoorc
+add all necessary things and configuration
+
+
+[options]
+addons_path = /home/qualian/opt/Projects/Odoo/odoo/addons, /home/qualian/opt/Projects/Odoo/addons, /home/qualian/opt/Projects/Odoo/odoo/custom_addons
+csv_internal_sep = ,
+data_dir = /home/qualian/opt/Projects/Odoo/
+db_host = False
+db_maxconn = 64
+db_name = False
+db_password = tad
+db_port = 5433
+db_sslmode = prefer
+db_template = template0
+db_user = tad
+dbfilter = 
+demo = {}
+email_from = False
+geoip_database = /usr/share/GeoIP/GeoLite2-City.mmdb
+http_enable = True
+http_interface = 
+http_port = 8069
+import_partial = 
+limit_memory_hard = 2684354560
+limit_memory_soft = 2147483648
+limit_request = 8192
+limit_time_cpu = 60
+limit_time_real = 99999999
+limit_time_real_cron = -1
+list_db = True
+log_db = False
+log_db_level = warning
+log_handler = :INFO
+log_level = info
+logfile = 
+gevent_port = 8072
+max_cron_threads = 2
+osv_memory_age_limit = False
+osv_memory_count_limit = False
+pg_path = 
+pidfile = 
+proxy_mode = False
+reportgz = False
+screencasts = 
+screenshots = /private/var/folders/23/ffnmxpb97c32dsc4b9f62g5h0000gn/T/odoo_tests
+server_wide_modules = base,web
+smtp_password = False
+smtp_port = 25
+smtp_server = localhost
+smtp_ssl = False
+smtp_user = False
+syslog = False
+test_enable = False
+test_file = 
+test_tags = None
+transient_age_limit = 1.0
+translate_modules = ['all']
+unaccent = False
+upgrade_path = 
+without_demo = False
+workers = 0
+longpolling_port = False
+admin_passwd = $pbkdf2-sha512$600000$QYgxplTq/V.LsVaq9T6n1A$TfS1Ly25U5.291xMo8GawCxrn7.JSCXAno7990vrxD3wXPqqAExZGO.mr4BrteGvcHvuJ2iTg8rcT3Vtn6OsnQ
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To run the application:
+
+python3 odoo-bin -c ../odoorc
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Set up pycharm:
+
+
+open project in the pycharm
+
+/home/qualian/opt/Projects/Odoo/odoo/odoo-bin
+
+script:
+
+-c /home/qualian/opt/Projects/Odoo/odoorc
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
